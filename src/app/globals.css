@@ -31,3 +31,44 @@ body {
     text-wrap: balance;
   }
 }
+
+
+@font-face {
+  font-family: "IBMPlexMono-Bold";
+  src: url("../assets//fonts/IBMPlexMono-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBMPlexMono-Light";
+  src: url("../assets//fonts/IBMPlexMono-Light.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBMPlexMono-SemiBold";
+  src: url("../assets//fonts/IBMPlexMono-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBMPlexMono-Medium";
+  src: url("../assets//fonts/IBMPlexMono-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBMPlexMono-Regular";
+  src: url("../assets//fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBMPlexMono-Thin";
+  src: url("../assets//fonts/IBMPlexMono-Thin.ttf") format("truetype");
+  font-display: swap;
+}
+
+body {
+  font-family: "IBMPlexMono-Regular";
+}

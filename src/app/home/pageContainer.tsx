@@ -21,13 +21,13 @@ export default function PageContainer() {
           <Section2 />
         </section>
 
-        <section id="section3">
+        {/* <section id="section3">
           <Section3 />
         </section>
 
         <section id="section4">
           <Section4 />
-        </section>
+        </section> */}
 
         <section id="section5">
           <Section5 />

@@ -1,0 +1,41 @@
+.header {
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .section {
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  #section1 {
+    background-color: #f1c40f;
+  }
+  
+  #section2 {
+    background-color: #e74c3c;
+  }
+  
+  #section3 {
+    background-color: #3498db;
+  }
+  
+  /* Styles for different sections */
+  .headerSection1 {
+    background-color: #f39c12;
+    color: #fff;
+  }
+  
+  .headerSection2 {
+    background-color: #c0392b;
+    color: #fff;
+  }
+  
+  .headerSection3 {
+    background-color: #2980b9;
+    color: #fff;
+  }
+  

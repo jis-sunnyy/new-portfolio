@@ -1,9 +1,6 @@
-import React from 'react'
+"use client";
+import React from "react";
 
-const Page = () => {
-    return (
-        <div>Header</div>
-    )
-}
-
-export default Page
+export const Header = () => {
+  return <div className="header"></div>;
+};

@@ -1,9 +1,41 @@
 @use "../../config/variables.scss" as vars;
 
-.page-container{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: vars.$SemiBold;
+.page-container {
+  // height: 100vh;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // font-family: vars.$SemiBold;
+}
+
+// <-------- Section 1 Start -------->
+
+// <-------- Section 1 End -------->
+
+// <-------- Section 2 Start -------->
+
+.sec2-main-box {
+  height: 100vh;
+  background-color: vars.$b1;
+  color: vars.$b2;
+}
+
+// <-------- Section 2 End -------->
+
+.sec3-main-box {
+  height: 100vh;
+  background-color: vars.$c1;
+  color: vars.$c2;
+}
+
+.sec4-main-box {
+  height: 100vh;
+  background-color: vars.$d1;
+  color: vars.$d2;
+}
+
+.sec5-main-box {
+  height: 100vh;
+  background-color: vars.$e1;
+  color: vars.$e2;
 }

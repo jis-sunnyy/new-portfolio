@@ -1,0 +1,11 @@
+@use "../../config/variables.scss" as vars;
+
+.header {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 1000; /* Ensure the header stays above other content */
+}

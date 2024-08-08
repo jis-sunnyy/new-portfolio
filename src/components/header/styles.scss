@@ -2,10 +2,93 @@
 
 .header {
   position: -webkit-sticky; /* For Safari */
-  position: sticky;
+  position: fixed;
   top: 0;
+  height: 9vh;
   width: 100%;
-  padding: 20px;
+  padding: 16px;
+  background-color: vars.$a1;
   transition: background-color 0.3s, color 0.3s;
-  z-index: 1000; /* Ensure the header stays above other content */
+  z-index: 1000;
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
+  &.scrolled {
+    // background-color: vars.$f1;
+  }
+
+  &.a {
+    background-color: vars.$a1;
+  }
+  &.b {
+    background-color: vars.$b1;
+  }
+  &.c {
+    background-color: vars.$c1;
+  }
+  &.d {
+    background-color: vars.$d1;
+  }
+  &.e {
+    background-color: vars.$e1;
+  }
+}
+
+.drawer-item {
+  display: none;
+  @media screen and (max-width: 400px) {
+    background-color: vars.$a1;
+    height: 9vh;
+    padding: 0px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.header-txt1 {
+  color: vars.$a2;
+  font-size: 16px;
+  font-family: vars.$SemiBold;
+  cursor: pointer;
+  &.a {
+    color: vars.$a2;
+  }
+  &.b {
+    color: vars.$b2;
+  }
+  &.c {
+    color: vars.$c2;
+  }
+  &.d {
+    color: vars.$d2;
+  }
+  &.e {
+    color: vars.$e2;
+  }
+}
+
+.header-txt2 {
+  color: vars.$a2;
+  font-size: 16px;
+  font-family: vars.$SemiBold;
+  cursor: pointer;
+}
+
+.header-box1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.drawer-txt1 {
+  color: #000;
+  font-size: 16px;
+  font-family: vars.$SemiBold;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }

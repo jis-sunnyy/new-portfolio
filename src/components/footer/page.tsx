@@ -10,22 +10,22 @@ export const Footer = () => {
       <Container className="footer-box3">
         <div className="footer-box1">
           <Row>
-            <Col md="2" sm="12" xs="12">
+            <Col md="2" sm="6" xs="12">
               <div className="footer-txt1">About</div>
             </Col>
           </Row>
           <Row>
-            <Col md="2" sm="12" xs="12">
+            <Col md="2" sm="6" xs="12">
               <div className="footer-txt1">Career</div>
             </Col>
           </Row>
           <Row>
-            <Col md="2" sm="12" xs="12">
+            <Col md="2" sm="6" xs="12">
               <div className="footer-txt1">Contact</div>
             </Col>
           </Row>
           <Row>
-            <Col md="2" sm="12" xs="12">
+            <Col md="2" sm="6" xs="12">
               <div className="footer-txt1">Resume</div>
             </Col>
           </Row>

@@ -28,6 +28,12 @@ const MainDrawer = (props: any) => {
             </div>
           </div>
           <div className="drawer-txt1">
+            <div className="">Projects</div>
+            <div className="">
+              <IoChevronForward size={14} color="#000" />
+            </div>
+          </div>
+          <div className="drawer-txt1">
             <div className="">Contact</div>
             <div className="">
               <IoChevronForward size={14} color="#000" />

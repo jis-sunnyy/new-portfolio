@@ -54,6 +54,9 @@ export const Header = ({ scrollToSection, activeSection }: any) => {
                   <div className={`header-txt1 ${activeSection}`}>Career</div>
                 </div>
                 <div className="">
+                  <div className={`header-txt1 ${activeSection}`}>Projects</div>
+                </div>
+                <div className="">
                   <div className={`header-txt1 ${activeSection}`}>Contact</div>
                 </div>
                 <div className="">

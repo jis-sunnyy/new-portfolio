@@ -46,11 +46,31 @@
   }
 }
 
+.header-txt1::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1.5px; /* Change the height to adjust the thickness of the underline */
+  bottom: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255); /* Change to desired color */
+  transition: width 0.3s ease; /* Adjust duration and easing function as needed */
+}
+
+.header-txt1:hover::after {
+  width: 100%;
+}
+
 .header-txt1 {
   color: vars.$a2;
   font-size: 16px;
   font-family: vars.$SemiBold;
+  position: relative;
+  display: inline-block;
   cursor: pointer;
+  &:hover {
+    color: #fff !important;
+  }
   &.a {
     color: vars.$a2;
   }

@@ -3,7 +3,6 @@ import React from "react";
 import "./styles.scss";
 import Image from "next/image";
 import Mouse from "../../../../assets/images/m2.gif";
-import AutoType from "../autoType/autoType";
 
 const Section1 = () => {
   return (

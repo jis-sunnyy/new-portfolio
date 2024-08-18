@@ -3,18 +3,19 @@ import React from "react";
 import "./styles.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { IoChevronUp } from "react-icons/io5";
+import { TbDownload } from "react-icons/tb";
 
 export const Footer = () => {
   return (
     <div className="footer">
       <Container className="footer-box3">
         <div className="footer-box1">
-          <Row>
+          {/* <Row>
             <Col md="2" sm="6" xs="12">
               <div className="footer-txt1">About</div>
             </Col>
-          </Row>
-          <Row>
+          </Row> */}
+          {/* <Row>
             <Col md="2" sm="6" xs="12">
               <div className="footer-txt1">Career</div>
             </Col>
@@ -23,10 +24,13 @@ export const Footer = () => {
             <Col md="2" sm="6" xs="12">
               <div className="footer-txt1">Contact</div>
             </Col>
-          </Row>
+          </Row> */}
           <Row>
             <Col md="2" sm="6" xs="12">
-              <div className="footer-txt1">Resume</div>
+              <div className="footer-txt1">
+                {/* <TbDownload /> */}
+                Resume
+              </div>
             </Col>
           </Row>
         </div>

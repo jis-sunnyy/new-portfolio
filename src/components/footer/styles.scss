@@ -45,3 +45,13 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.footer-icon {
+  color: #002400;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  &:hover {
+    color: #ff5154;
+    transform: translateY(-3px);
+  }
+}

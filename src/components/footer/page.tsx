@@ -4,33 +4,36 @@ import "./styles.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { IoChevronUp } from "react-icons/io5";
 import { TbDownload } from "react-icons/tb";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { IoMail } from "react-icons/io5";
+import { IoMdDownload } from "react-icons/io";
 
 export const Footer = () => {
   return (
     <div className="footer">
       <Container className="footer-box3">
         <div className="footer-box1">
-          {/* <Row>
+          <Row>
             <Col md="2" sm="6" xs="12">
-              <div className="footer-txt1">About</div>
+              <FaLinkedin className="footer-icon" size={25} />
             </Col>
-          </Row> */}
-          {/* <Row>
+          </Row>
+
+          <Row>
             <Col md="2" sm="6" xs="12">
-              <div className="footer-txt1">Career</div>
+              <FaInstagram className="footer-icon" size={25} />
+            </Col>
+          </Row>
+
+          <Row>
+            <Col md="2" sm="6" xs="12">
+              <IoMail className="footer-icon" size={25} />
             </Col>
           </Row>
           <Row>
             <Col md="2" sm="6" xs="12">
-              <div className="footer-txt1">Contact</div>
-            </Col>
-          </Row> */}
-          <Row>
-            <Col md="2" sm="6" xs="12">
-              <div className="footer-txt1">
-                {/* <TbDownload /> */}
-                Resume
-              </div>
+              <IoMdDownload className="footer-icon" size={25} />
             </Col>
           </Row>
         </div>

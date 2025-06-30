@@ -9,16 +9,17 @@ const Section2 = () => {
       <hr />
       <br />
       <div className="common-txt2">
-        With over 6 years of experience as a Lead Software Engineer and
+        With 6 years of experience as a Lead Software Engineer and
         Techno-Functional Manager, I have honed my expertise in both technical
         and managerial aspects of software development. My experience spans
         across various domains, where I have worked on diverse web and mobile
         applications, contributing to the development and delivery of complex
         solutions. I have had the opportunity to design and implement
-        applications for industries such as e-commerce, international event
-        management, ticketing apps, hospital management systems, point of sale
-        (POS) systems, accounting software, airline ticket booking systems, and
-        logistics/cargo/last-mile delivery apps.
+        applications for industries such as Hospital Management Systems,
+        E-commerce, International Event Management System, CRM, ERP, Ticketing
+        Apps, Point of Sale (POS) Systems, Accounting Software, Airline Ticket
+        Booking Systems, and Logistics & Cargo Management Apps, Last-Mile
+        Delivery Apps.
       </div>
       <br />
       <div className="common-txt2">
@@ -31,6 +32,14 @@ const Section2 = () => {
         My ability to bridge the gap between technical teams and business units
         has been instrumental in delivering impactful and customer-centric
         products.
+      </div>
+      <br />
+      <div className="common-txt2">
+        I excel in managing projects from inception to deployment, ensuring
+        timely delivery and budget adherence. With a strong balance of technical
+        and business expertise, I identify opportunities for improvement and
+        drive innovation, adapting to new technologies to deliver high-quality
+        solutions.
       </div>
     </div>
   );

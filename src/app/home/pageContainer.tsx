@@ -26,35 +26,54 @@ export default function PageContainer() {
   };
 
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px 0px -65% 0px", // Adjust the bottom margin as needed
-      threshold: 0.25,
-    };
+    const handleScroll = () => {
+      const allSections = Object.values(sectionRefs)
+        .map((ref: any) => ref.current)
+        .filter((el: any) => el !== null);
 
-    const callback = (entries: any) => {
-      entries.forEach((entry: any) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+      // Trigger point: when section reaches 20% from top of viewport
+      const triggerPoint = window.innerHeight * 0.2;
+
+      // Find which section is at the trigger point
+      let activeSection = null;
+
+      for (const section of allSections) {
+        const rect = section.getBoundingClientRect();
+
+        // If section's top is at or above trigger point AND bottom is below trigger point
+        // Then this section is active
+        if (rect.top <= triggerPoint && rect.bottom > triggerPoint) {
+          activeSection = section;
+          break;
         }
-      });
-    };
-
-    const observer = new IntersectionObserver(callback, options);
-
-    Object.values(sectionRefs).forEach((ref: any) => {
-      if (ref.current) {
-        observer.observe(ref.current);
       }
-    });
 
-    // Cleanup observer on component unmount
-    return () => {
-      Object.values(sectionRefs).forEach((ref: any) => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
+      // If no section found at trigger point (edge case at very top)
+      // Use the first section whose bottom is still visible
+      if (!activeSection) {
+        for (const section of allSections) {
+          const rect = section.getBoundingClientRect();
+          if (rect.bottom > 0) {
+            activeSection = section;
+            break;
+          }
         }
-      });
+      }
+
+      if (activeSection) {
+        setActiveSection(activeSection.id);
+      }
+    };
+
+    // Run once on mount
+    handleScroll();
+
+    // Add scroll listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [sectionRefs]);
 

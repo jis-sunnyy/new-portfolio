@@ -5,41 +5,91 @@ import "./styles.scss";
 const Section2 = () => {
   return (
     <div className="sec2-main-box">
-      <div className="common-txt1">About Me</div>
-      <hr />
-      <br />
-      <div className="common-txt2">
-        With 6 years of experience as a Lead Software Engineer and
-        Techno-Functional Manager, I have honed my expertise in both technical
-        and managerial aspects of software development. My experience spans
-        across various domains, where I have worked on diverse web and mobile
-        applications, contributing to the development and delivery of complex
-        solutions. I have had the opportunity to design and implement
-        applications for industries such as Hospital Management Systems,
-        E-commerce, International Event Management System, CRM, ERP, Ticketing
-        Apps, Point of Sale (POS) Systems, Accounting Software, Airline Ticket
-        Booking Systems, and Logistics & Cargo Management Apps, Last-Mile
-        Delivery Apps.
-      </div>
-      <br />
-      <div className="common-txt2">
-        Throughout my career, I have been responsible for leading
-        cross-functional teams, collaborating with stakeholders, and ensuring
-        the successful execution of projects from concept to deployment. My
-        technical expertise, combined with a strong understanding of business
-        requirements, has enabled me to create scalable, efficient, and
-        high-performance solutions that meet both user and organizational needs.
-        My ability to bridge the gap between technical teams and business units
-        has been instrumental in delivering impactful and customer-centric
-        products.
-      </div>
-      <br />
-      <div className="common-txt2">
-        I excel in managing projects from inception to deployment, ensuring
-        timely delivery and budget adherence. With a strong balance of technical
-        and business expertise, I identify opportunities for improvement and
-        drive innovation, adapting to new technologies to deliver high-quality
-        solutions.
+      <div className="sec2-container">
+        <div className="common-txt1">About Me</div>
+        <hr />
+
+        <div className="about-intro">
+          <p className="intro-highlight">
+            I&apos;m a Full Stack Engineer passionate about building elegant,
+            scalable solutions that solve real-world problems. From concept to
+            deployment, I transform ideas into powerful web and mobile
+            applications.
+          </p>
+        </div>
+
+        <div className="about-content">
+          <div className="about-section">
+            <h3 className="section-heading">What I Do</h3>
+            <p className="common-txt2">
+              I craft digital experiences across the full stack. Whether
+              it&apos;s architecting a complex ERP system, integrating AI
+              capabilities, or building intuitive mobile apps—I bring technical
+              excellence and creative problem-solving to every project. My work
+              has powered solutions across healthcare, e-commerce, aviation,
+              logistics, and more.
+            </p>
+          </div>
+
+          <div className="about-section">
+            <h3 className="section-heading">How I Work</h3>
+            <p className="common-txt2">
+              I believe great software is born from collaboration. I&apos;ve led
+              teams and worked directly with clients across India, UAE, and
+              Africa—translating business needs into technical solutions that
+              deliver results. My approach balances innovation with reliability,
+              ensuring every solution is both cutting-edge and production-ready.
+            </p>
+          </div>
+
+          <div className="about-section">
+            <h3 className="section-heading">My Toolkit</h3>
+            <div className="skills-grid">
+              <div className="skill-category">
+                <h4>Frontend Magic</h4>
+                <p>
+                  React, Next.js, React Native • TypeScript • Tailwind CSS •
+                  Redux • Modern UI/UX
+                </p>
+              </div>
+              <div className="skill-category">
+                <h4>Backend Power</h4>
+                <p>
+                  Node.js, NestJS, Express • Python, Django • GraphQL, REST APIs
+                  • Real-time Systems
+                </p>
+              </div>
+              <div className="skill-category">
+                <h4>Data & Storage</h4>
+                <p>
+                  PostgreSQL, MongoDB, MySQL • Redis • Database Optimization •
+                  Vector Databases
+                </p>
+              </div>
+              <div className="skill-category">
+                <h4>Cloud & Infrastructure</h4>
+                <p>
+                  AWS (EC2, S3) • Docker • CI/CD Pipelines • Nginx • Server
+                  Management
+                </p>
+              </div>
+              <div className="skill-category">
+                <h4>AI & Emerging Tech</h4>
+                <p>
+                  LangChain, LlamaIndex • TensorFlow, PyTorch • RAG Systems •
+                  NLP & Computer Vision
+                </p>
+              </div>
+              <div className="skill-category">
+                <h4>Mobile Development</h4>
+                <p>
+                  React Native • iOS & Android • Native Integrations • Push
+                  Notifications • Bluetooth
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,71 +1,80 @@
 "use client";
 import React from "react";
 import "./styles.scss";
-import { Col, Container, Row } from "react-bootstrap";
-import { IoChevronUp } from "react-icons/io5";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { IoMail } from "react-icons/io5";
+import {
+  IoChevronUp,
+  IoLogoGithub,
+  IoLogoLinkedin,
+  IoMail,
+} from "react-icons/io5";
 import { IoMdDownload } from "react-icons/io";
 
 export const Footer = () => {
   return (
     <div className="footer">
-      <Container className="footer-box3">
-        <div className="footer-box1">
-          <Row>
-            <Col md="2" sm="6" xs="12">
+      <div className="footer-container">
+        <div className="footer-content">
+          <div className="footer-left">
+            <div className="footer-brand">
+              <h3>Jis Sunny</h3>
+              <p>Full Stack Engineer</p>
+            </div>
+          </div>
+
+          <div className="footer-center">
+            <div className="footer-social">
               <a
                 href="https://www.linkedin.com/in/jis-sunny-28241815a/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="footer-icon-link"
               >
-                <FaLinkedin className="footer-icon" size={25} />
+                <IoLogoLinkedin className="footer-icon" size={24} />
               </a>
-            </Col>
-          </Row>
 
-          <Row>
-            <Col md="2" sm="6" xs="12">
               <a
-                href="https://www.instagram.com/__jis_/"
+                href="https://github.com/jissunny"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="footer-icon-link"
               >
-                <FaInstagram className="footer-icon" size={25} />
+                <IoLogoGithub className="footer-icon" size={24} />
               </a>
-            </Col>
-          </Row>
 
-          <Row>
-            <Col md="2" sm="6" xs="12">
-              <a
-                href="mailto:jis.sunny@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <IoMail className="footer-icon" size={25} />
+              <a href="mailto:jis.sunny@gmail.com" className="footer-icon-link">
+                <IoMail className="footer-icon" size={24} />
               </a>
-            </Col>
-          </Row>
-          <Row>
-            <Col md="2" sm="6" xs="12">
-              <IoMdDownload className="footer-icon" size={25} />
-            </Col>
-          </Row>
+
+              <a
+                href="/Jis_Lead_Software_Engineer.pdf"
+                download="Jis_Sunny_Resume.pdf"
+                className="footer-icon-link"
+              >
+                <IoMdDownload className="footer-icon" size={24} />
+              </a>
+            </div>
+          </div>
+
+          <div className="footer-right">
+            <div
+              className="footer-scroll-top"
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                })
+              }
+            >
+              <IoChevronUp size={20} />
+              <span>Back to Top</span>
+            </div>
+          </div>
         </div>
-        <div
-          className="footer-box2"
-          onClick={() =>
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            })
-          }
-        >
-          <IoChevronUp color="#d3f350" size={18} />
+
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} Jis Sunny. Built passion</p>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

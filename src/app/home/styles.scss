@@ -45,24 +45,26 @@
   min-height: 100vh;
   background-color: vars.$d1;
   color: vars.$d2;
-
   font-family: vars.$SemiBold;
   font-size: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 100px;
+
+  @media screen and (max-width: 412px) {
+    padding: 20px;
+  }
 }
 
 .sec5-main-box {
   min-height: 100vh;
   background-color: vars.$e1;
   color: vars.$e2;
-
   font-family: vars.$SemiBold;
   font-size: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 100px;
+
+  @media screen and (max-width: 412px) {
+    padding: 20px;
+  }
 }
 
 // <-------- Common Start -------->

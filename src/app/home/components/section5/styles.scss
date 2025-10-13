@@ -1,1 +1,213 @@
 @use "../../../../config/variables.scss" as vars;
+
+.sec5-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-intro {
+  text-align: center;
+  margin: 40px 0;
+
+  p {
+    font-family: vars.$Regular;
+    font-size: 20px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 412px) {
+      font-size: 16px;
+    }
+  }
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+
+  h3 {
+    font-family: vars.$SemiBold;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    transition: color 0.3s ease;
+
+    @media screen and (max-width: 412px) {
+      font-size: 18px;
+    }
+  }
+
+  p {
+    font-family: vars.$Regular;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    word-break: break-word;
+
+    @media screen and (max-width: 412px) {
+      font-size: 14px;
+    }
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+
+    h3 {
+      color: #fff;
+    }
+
+    .contact-icon {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+  }
+
+  @media screen and (max-width: 412px) {
+    padding: 25px 20px;
+  }
+}
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+
+  svg {
+    font-size: 28px;
+  }
+
+  @media screen and (max-width: 412px) {
+    width: 55px;
+    height: 55px;
+
+    svg {
+      font-size: 26px;
+    }
+  }
+}
+
+.contact-cta {
+  text-align: center;
+  padding: 50px 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+
+  h2 {
+    font-family: vars.$Bold;
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 20px 0;
+
+    @media screen and (max-width: 768px) {
+      font-size: 28px;
+    }
+
+    @media screen and (max-width: 412px) {
+      font-size: 24px;
+    }
+  }
+
+  p {
+    font-family: vars.$Regular;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 35px 0;
+
+    @media screen and (max-width: 412px) {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 412px) {
+    padding: 40px 25px;
+  }
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.95);
+  font-family: vars.$SemiBold;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  svg {
+    font-size: 22px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+    transform: translateY(-2px);
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  @media screen and (max-width: 412px) {
+    padding: 14px 28px;
+    font-size: 16px;
+
+    svg {
+      font-size: 20px;
+    }
+  }
+}

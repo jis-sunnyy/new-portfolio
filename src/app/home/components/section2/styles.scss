@@ -1,1 +1,116 @@
 @use "../../../../config/variables.scss" as vars;
+
+.sec2-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-intro {
+  margin: 30px 0;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+
+  @media screen and (max-width: 412px) {
+    padding: 20px;
+    margin: 20px 0;
+  }
+}
+
+.intro-highlight {
+  font-family: vars.$SemiBold;
+  font-size: 24px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+
+  @media screen and (max-width: 412px) {
+    font-size: 18px;
+  }
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+
+  @media screen and (max-width: 412px) {
+    gap: 30px;
+    margin-top: 30px;
+  }
+}
+
+.about-section {
+  h3.section-heading {
+    font-family: vars.$SemiBold;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+
+    @media screen and (max-width: 412px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+.skill-category {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  h4 {
+    font-family: vars.$SemiBold;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+
+    @media screen and (max-width: 412px) {
+      font-size: 16px;
+    }
+  }
+
+  p {
+    font-family: vars.$Regular;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin: 0;
+
+    @media screen and (max-width: 412px) {
+      font-size: 14px;
+    }
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+
+    h4 {
+      color: #fff;
+    }
+  }
+
+  @media screen and (max-width: 412px) {
+    padding: 15px;
+  }
+}

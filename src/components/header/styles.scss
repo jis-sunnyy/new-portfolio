@@ -8,8 +8,8 @@
   width: 100%;
   padding: 16px;
   background-color: vars.$a1;
-  transition: background-color 0.3s, color 0.3s;
   z-index: 1000;
+  transition: background-color 0.4s ease;
   @media screen and (max-width: 400px) {
     display: none;
   }
@@ -43,33 +43,35 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: background-color 0.4s ease;
   }
-}
 
-.header-txt1::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 1.5px; /* Change the height to adjust the thickness of the underline */
-  bottom: 0;
-  left: 0;
-  background-color: rgb(255, 255, 255); /* Change to desired color */
-  transition: width 0.3s ease; /* Adjust duration and easing function as needed */
-}
-
-.header-txt1:hover::after {
-  width: 100%;
+  &.a {
+    background-color: vars.$a1;
+  }
+  &.b {
+    background-color: vars.$b1;
+  }
+  &.c {
+    background-color: vars.$c1;
+  }
+  &.d {
+    background-color: vars.$d1;
+  }
+  &.e {
+    background-color: vars.$e1;
+  }
 }
 
 .header-txt1 {
   color: vars.$a2;
   font-size: 16px;
   font-family: vars.$SemiBold;
-  position: relative;
-  display: inline-block;
   cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
   &:hover {
     color: #fff !important;
+    transform: translateY(-2px);
   }
   &.a {
     color: vars.$a2;

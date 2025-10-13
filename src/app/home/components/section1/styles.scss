@@ -5,18 +5,167 @@
   background-color: vars.$a1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
+  padding: 80px 40px 40px;
+
+  @media screen and (max-width: 768px) {
+    padding: 60px 30px 30px;
+  }
+
+  @media screen and (max-width: 412px) {
+    padding: 50px 20px 30px;
+  }
 }
 
-.sec1-txt1 {
-  font-family: vars.$SemiBold;
-  font-size: 60px;
-  color: vars.$a2;
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 900px;
+  animation: fadeInUp 0.8s ease-out;
 }
 
-.sec1-txt2 {
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-greeting {
   font-family: vars.$Regular;
   font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 412px) {
+    font-size: 16px;
+  }
+}
+
+.hero-name {
+  font-family: vars.$Bold;
+  font-size: 72px;
   color: vars.$a2;
+  margin: 0 0 20px 0;
+  line-height: 1.1;
+
+  @media screen and (max-width: 768px) {
+    font-size: 56px;
+  }
+
+  @media screen and (max-width: 412px) {
+    font-size: 42px;
+  }
+}
+
+.hero-tagline {
+  font-family: vars.$SemiBold;
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 25px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media screen and (max-width: 412px) {
+    font-size: 20px;
+  }
+}
+
+.hero-description {
+  font-family: vars.$Regular;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 0 40px 0;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 412px) {
+    font-size: 15px;
+  }
+}
+
+.hero-social {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  svg {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    transform: translateY(-3px);
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  @media screen and (max-width: 412px) {
+    width: 45px;
+    height: 45px;
+
+    svg {
+      font-size: 22px;
+    }
+  }
+}
+
+.scroll-indicator {
+  padding-bottom: 20px;
+  opacity: 0.7;
+  animation: bounce 2s infinite;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }

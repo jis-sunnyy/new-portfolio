@@ -48,19 +48,45 @@ export const Header = ({ scrollToSection, activeSection }: any) => {
             <Col md="6">
               <div className="header-box1">
                 <div className="">
-                  <div className={`header-txt1 ${activeSection}`}>About</div>
+                  <div
+                    className={`header-txt1 ${activeSection}`}
+                    onClick={() => scrollToSection("b")}
+                  >
+                    About
+                  </div>
                 </div>
                 <div className="">
-                  <div className={`header-txt1 ${activeSection}`}>Career</div>
+                  <div
+                    className={`header-txt1 ${activeSection}`}
+                    onClick={() => scrollToSection("c")}
+                  >
+                    Career
+                  </div>
                 </div>
                 <div className="">
-                  <div className={`header-txt1 ${activeSection}`}>Projects</div>
+                  <div
+                    className={`header-txt1 ${activeSection}`}
+                    onClick={() => scrollToSection("d")}
+                  >
+                    Projects
+                  </div>
                 </div>
                 <div className="">
-                  <div className={`header-txt1 ${activeSection}`}>Contact</div>
+                  <div
+                    className={`header-txt1 ${activeSection}`}
+                    onClick={() => scrollToSection("e")}
+                  >
+                    Contact
+                  </div>
                 </div>
                 <div className="">
-                  <div className={`header-txt1 ${activeSection}`}>Resume</div>
+                  <a
+                    href="/Jis_Lead_Software_Engineer.pdf"
+                    download="Jis_Sunny_Resume.pdf"
+                    className={`header-txt1 ${activeSection}`}
+                  >
+                    Resume
+                  </a>
                 </div>
               </div>
             </Col>
@@ -69,7 +95,7 @@ export const Header = ({ scrollToSection, activeSection }: any) => {
         </Container>
       </div>
 
-      <div className="drawer-item">
+      <div className={`drawer-item ${activeSection}`}>
         <div className="header-txt2"></div>
         <div className="" onClick={() => setIsDrawer(true)}>
           <CgMenuRight size={22} color="#fff" />
@@ -77,7 +103,11 @@ export const Header = ({ scrollToSection, activeSection }: any) => {
       </div>
 
       {isDrawer ? (
-        <MainDrawer open={isDrawer} close={() => setIsDrawer(false)} />
+        <MainDrawer
+          open={isDrawer}
+          close={() => setIsDrawer(false)}
+          scrollToSection={scrollToSection}
+        />
       ) : null}
     </>
   );

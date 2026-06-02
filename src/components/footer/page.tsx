@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import "./styles.scss";
 import {
   IoChevronUp,
   IoLogoGithub,
@@ -8,72 +7,61 @@ import {
   IoMail,
 } from "react-icons/io5";
 import { IoMdDownload } from "react-icons/io";
+import { identity } from "@/data/portfolio";
 
-export const Footer = () => {
+interface FooterProps {
+  scrollToSection?: (id: string) => void;
+}
+
+export const Footer = ({ scrollToSection }: FooterProps) => {
   return (
-    <div className="footer">
-      <div className="footer-container">
-        <div className="footer-content">
-          <div className="footer-left">
-            <div className="footer-brand">
-              <h3>Jis Sunny</h3>
-              <p>Full Stack Engineer</p>
-            </div>
-          </div>
+    <footer className="footer">
+      <div className="shell footer-inner">
+        <div className="footer-top">
+          <span>© {new Date().getFullYear()} Jis Sunny — Full Stack Engineer</span>
 
-          <div className="footer-center">
-            <div className="footer-social">
-              <a
-                href="https://www.linkedin.com/in/jis-sunny-28241815a/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-icon-link"
-              >
-                <IoLogoLinkedin className="footer-icon" size={24} />
-              </a>
-
-              <a
-                href="https://github.com/jissunny"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-icon-link"
-              >
-                <IoLogoGithub className="footer-icon" size={24} />
-              </a>
-
-              <a href="mailto:jis.sunny@gmail.com" className="footer-icon-link">
-                <IoMail className="footer-icon" size={24} />
-              </a>
-
-              <a
-                href="/Jis_Software_Engineer_CV.pdf"
-                download="Jis_Sunny_Resume.pdf"
-                className="footer-icon-link"
-              >
-                <IoMdDownload className="footer-icon" size={24} />
-              </a>
-            </div>
-          </div>
-
-          <div className="footer-right">
-            <div
-              className="footer-scroll-top"
-              onClick={() =>
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                })
-              }
+          <div className="footer-social">
+            <a
+              href={identity.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
             >
-              <IoChevronUp size={18} />
-            </div>
+              <IoLogoLinkedin size={18} />
+            </a>
+            <a
+              href={identity.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <IoLogoGithub size={18} />
+            </a>
+            <a href={`mailto:${identity.email}`} aria-label="Email">
+              <IoMail size={18} />
+            </a>
+            <a
+              href={identity.resumeUrl}
+              download="Jis_Sunny_Resume.pdf"
+              aria-label="Resume"
+            >
+              <IoMdDownload size={18} />
+            </a>
           </div>
+
+          <span
+            className="footer-top-link"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            <IoChevronUp size={14} style={{ verticalAlign: "middle" }} /> back to top
+          </span>
         </div>
 
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Jis Sunny. Built passion</p>
+          <span>handcrafted in Calicut, Kerala · v2.0</span>
+          <span>built with Next.js · IBM Plex Mono</span>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };

@@ -1,6 +1,6 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import { Header } from "@/components/header/page";
-import "./styles.scss";
 import { Footer } from "@/components/footer/page";
 
 import Section1 from "./components/section1/section1";
@@ -8,74 +8,65 @@ import Section2 from "./components/section2/section2";
 import Section3 from "./components/section3/section3";
 import Section4 from "./components/section4/section4";
 import Section5 from "./components/section5/section5";
-import { useEffect, useRef, useState } from "react";
+import Section6 from "./components/section6/section6";
+
+const NAV_OFFSET = 64; // fixed header height
 
 export default function PageContainer() {
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState<string>("a");
 
-  const sectionRefs: any = {
-    a: useRef(null),
-    b: useRef(null),
-    c: useRef(null),
-    d: useRef(null),
-    e: useRef(null),
+  const sectionRefs: Record<string, React.RefObject<HTMLElement>> = {
+    a: useRef<HTMLElement>(null),
+    b: useRef<HTMLElement>(null),
+    c: useRef<HTMLElement>(null),
+    d: useRef<HTMLElement>(null),
+    e: useRef<HTMLElement>(null),
+    f: useRef<HTMLElement>(null),
   };
 
-  const scrollToSection = (sectionId: any) => {
-    sectionRefs[sectionId].current.scrollIntoView({ behavior: "smooth" });
+  const scrollToSection = (id: string) => {
+    const el = sectionRefs[id]?.current;
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+    window.scrollTo({ top, behavior: "smooth" });
   };
 
+  // Scroll-spy: which section is under the trigger line
   useEffect(() => {
     const handleScroll = () => {
-      const allSections = Object.values(sectionRefs)
-        .map((ref: any) => ref.current)
-        .filter((el: any) => el !== null);
-
-      // Trigger point: when section reaches 20% from top of viewport
-      const triggerPoint = window.innerHeight * 0.2;
-
-      // Find which section is at the trigger point
-      let activeSection = null;
-
-      for (const section of allSections) {
-        const rect = section.getBoundingClientRect();
-
-        // If section's top is at or above trigger point AND bottom is below trigger point
-        // Then this section is active
-        if (rect.top <= triggerPoint && rect.bottom > triggerPoint) {
-          activeSection = section;
-          break;
-        }
+      const triggerPoint = window.innerHeight * 0.3;
+      let current: string = "a";
+      for (const id of Object.keys(sectionRefs)) {
+        const el = sectionRefs[id].current;
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= triggerPoint) current = id;
       }
-
-      // If no section found at trigger point (edge case at very top)
-      // Use the first section whose bottom is still visible
-      if (!activeSection) {
-        for (const section of allSections) {
-          const rect = section.getBoundingClientRect();
-          if (rect.bottom > 0) {
-            activeSection = section;
-            break;
-          }
-        }
-      }
-
-      if (activeSection) {
-        setActiveSection(activeSection.id);
-      }
+      setActiveSection(current);
     };
-
-    // Run once on mount
     handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    // Add scroll listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [sectionRefs]);
+  // Reveal-on-scroll
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 
   return (
     <div className="page-container">
@@ -84,24 +75,23 @@ export default function PageContainer() {
         <section id="a" ref={sectionRefs.a}>
           <Section1 />
         </section>
-
         <section id="b" ref={sectionRefs.b}>
           <Section2 />
         </section>
-
         <section id="c" ref={sectionRefs.c}>
           <Section3 />
         </section>
-
         <section id="d" ref={sectionRefs.d}>
           <Section4 />
         </section>
-
         <section id="e" ref={sectionRefs.e}>
           <Section5 />
         </section>
+        <section id="f" ref={sectionRefs.f}>
+          <Section6 />
+        </section>
       </div>
-      <Footer />
+      <Footer scrollToSection={scrollToSection} />
     </div>
   );
 }

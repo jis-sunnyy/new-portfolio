@@ -1,91 +1,70 @@
 "use client";
-import React from "react";
-import "./styles.scss";
-import {
-  IoLogoGithub,
-  IoLogoLinkedin,
-  IoMail,
-  IoLocationSharp,
-} from "react-icons/io5";
+import React, { useEffect, useState } from "react";
+import { projectsData, type Project } from "@/data/projects";
+import ProjectModal from "./ProjectModal";
 
 const Section5 = () => {
+  const [active, setActive] = useState<Project | null>(null);
+  const [hover, setHover] = useState<Project | null>(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
+
   return (
-    <div className="sec5-main-box">
-      <div className="sec5-container">
-        <div className="common-txt1">Let&apos;s Connect</div>
-        <hr />
+    <div className="section shell">
+      <div className="section-head" data-reveal>
+        <span className="section-num">04 /</span>
+        <h2 className="section-title">selected work</h2>
+        <span className="section-aside">
+          {projectsData.length} projects · 2022–2024
+        </span>
+      </div>
 
-        <div className="contact-intro">
-          <p>
-            I&apos;m always interested in hearing about new projects,
-            opportunities, or just having a chat about technology. Feel free to
-            reach out!
-          </p>
-        </div>
+      <div className="projects-wrap">
+        {projectsData.map((p, i) => (
+          <button
+            type="button"
+            className="project-row"
+            data-reveal
+            key={p.id}
+            style={{ transitionDelay: `${i * 60}ms` }}
+            onMouseEnter={() => setHover(p)}
+            onMouseLeave={() => setHover(null)}
+            onClick={() => setActive(p)}
+          >
+            <span className="proj-num">/ {String(i + 1).padStart(2, "0")}</span>
+            <span className="proj-tag">{p.category.toUpperCase()}</span>
+            <span className="proj-info">
+              <span className="proj-name" style={{ display: "block" }}>
+                {p.title}
+              </span>
+              <span className="proj-sub">
+                {p.subtitle} · {p.year}
+              </span>
+            </span>
+            <span className="proj-arrow">→</span>
+          </button>
+        ))}
+      </div>
 
-        <div className="contact-content">
-          <div className="contact-grid">
-            <a
-              href="mailto:jis.sunny@gmail.com"
-              className="contact-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="contact-icon">
-                <IoMail />
-              </div>
-              <h3>Email</h3>
-              <p>jis.sunny@gmail.com</p>
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/jis-sunny-28241815a/"
-              className="contact-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="contact-icon">
-                <IoLogoLinkedin />
-              </div>
-              <h3>LinkedIn</h3>
-              <p>Connect with me</p>
-            </a>
-
-            <a
-              href="https://github.com/jissunny"
-              className="contact-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="contact-icon">
-                <IoLogoGithub />
-              </div>
-              <h3>GitHub</h3>
-              <p>Check out my work</p>
-            </a>
-
-            <div className="contact-card">
-              <div className="contact-icon">
-                <IoLocationSharp />
-              </div>
-              <h3>Location</h3>
-              <p>Calicut, Kerala, India</p>
-            </div>
-          </div>
-
-          <div className="contact-cta">
-            <h2>Ready to work together?</h2>
-            <p>
-              Whether you have a project in mind or just want to discuss
-              technology, I&apos;d love to hear from you.
-            </p>
-            <a href="mailto:jis.sunny@gmail.com" className="cta-button">
-              <IoMail />
-              <span>Get In Touch</span>
-            </a>
+      {/* Floating cursor preview */}
+      <div
+        className={`proj-preview ${hover ? "visible" : ""}`}
+        style={{ left: pos.x, top: pos.y - 80 }}
+      >
+        <div className="proj-preview-inner">
+          <div className="proj-preview-bg" />
+          <div className="proj-preview-label">
+            {hover ? `${hover.category} · view case` : ""}
           </div>
         </div>
       </div>
+
+      <ProjectModal project={active} onClose={() => setActive(null)} />
     </div>
   );
 };

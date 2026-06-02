@@ -2,7 +2,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./styles.scss";
-import { CgMenuRight } from "react-icons/cg";
 import MainDrawer from "./drawer";
 
 export const Header = ({ scrollToSection, activeSection }: any) => {
@@ -97,18 +96,22 @@ export const Header = ({ scrollToSection, activeSection }: any) => {
 
       <div className={`drawer-item ${activeSection}`}>
         <div className="header-txt2"></div>
-        <div className="" onClick={() => setIsDrawer(true)}>
-          <CgMenuRight size={22} color="#fff" />
-        </div>
+        <button
+          className={`hamburger ${isDrawer ? "hamburger--open" : ""}`}
+          onClick={() => setIsDrawer((v) => !v)}
+          aria-label="Toggle menu"
+        >
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+        </button>
       </div>
 
-      {isDrawer ? (
-        <MainDrawer
-          open={isDrawer}
-          close={() => setIsDrawer(false)}
-          scrollToSection={scrollToSection}
-        />
-      ) : null}
+      <MainDrawer
+        open={isDrawer}
+        close={() => setIsDrawer(false)}
+        scrollToSection={scrollToSection}
+      />
     </>
   );
 };

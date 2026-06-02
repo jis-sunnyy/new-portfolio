@@ -11,47 +11,129 @@ export interface Project {
 export const projectsData: Project[] = [
   {
     id: 1,
+    title: "ADFW 2024",
+    subtitle: "Event Management System – Abu Dhabi Finance Week",
+    description:
+      "Custom event management CRM for Abu Dhabi Finance Week 2024, supporting registration, scheduling, and real-time attendee communication.",
+    technologies: [
+      "Next.js",
+      "NestJS",
+      "Node.js",
+      "Sendbird SDK",
+      "AWS",
+      "Strapi CMS",
+    ],
+    highlights: [
+      "Developed a custom CRM for event registration, scheduling, and attendee engagement",
+      "Integrated Sendbird SDK for real-time chat and participant communication",
+      "Delivered a scalable platform supporting event coordination and client interaction workflows",
+    ],
+    category: "CRM",
+  },
+  {
+    id: 2,
+    title: "Alaba Marketplace",
+    subtitle: "Multi-Vendor E-commerce Platform",
+    description:
+      "Scalable multi-vendor e-commerce marketplace with web and mobile apps, supporting product listings, order management, and secure payment workflows.",
+    technologies: [
+      "Next.js",
+      "React Native",
+      "NestJS",
+      "PostgreSQL",
+      "Azure",
+    ],
+    highlights: [
+      "Designed and developed a scalable marketplace supporting multi-vendor product listings and order management",
+      "Built responsive web and mobile applications enabling seamless shopping experiences across devices",
+      "Architected and deployed cloud infrastructure on Azure with scalable backend services",
+    ],
+    category: "E-commerce",
+  },
+  {
+    id: 3,
     title: "Sahari Cargo",
     subtitle: "International Cargo Management ERP",
     description:
-      "A comprehensive ERP system integrating logistics, accounting, and tracking systems in a single scalable platform.",
+      "A comprehensive ERP system integrating shipment tracking, accounting, and warehouse operations in a single scalable platform.",
     technologies: [
-      "AWS",
-      "Bluetooth Printer",
-      "Barcode Printing",
-      "Cloud Deployment",
       "React.js",
-      "Node.js",
+      "NestJS",
+      "PostgreSQL",
+      "AWS",
+      "Barcode Printing",
+      "Bluetooth Printer",
     ],
     highlights: [
-      "Engineered a scalable ERP integrating logistics, accounting, and tracking systems",
-      "Implemented barcode printing and automated cargo tracking, improving operational accuracy",
-      "Advanced AWS infrastructure setup for high availability and fault tolerance",
+      "Designed and developed a scalable cargo logistics ERP integrating shipment tracking, accounting, and warehouse operations",
+      "Implemented barcode-based cargo tracking and automated label printing, improving warehouse efficiency",
+      "Architected and deployed scalable AWS infrastructure ensuring high availability",
     ],
     category: "ERP",
   },
   {
-    id: 2,
+    id: 4,
+    title: "Kenya Airways",
+    subtitle: "Facility Management System",
+    description:
+      "Platform for managing facility maintenance requests, service scheduling, and vendor coordination with WhatsApp ticketing and AI-based ticket creation.",
+    technologies: [
+      "React.js",
+      "React Native",
+      "NestJS",
+      "PostgreSQL",
+      "WhatsApp Ticketing",
+      "AI Ticket Creation",
+    ],
+    highlights: [
+      "Developed a platform for managing facility maintenance requests, service scheduling, and vendor coordination",
+      "Implemented role-based dashboards for administrators, service providers, and customers",
+      "Designed APIs and reporting modules to track service performance and operational efficiency",
+    ],
+    category: "Enterprise",
+  },
+  {
+    id: 5,
     title: "Kenya Airways",
     subtitle: "Staff Travel Management System",
     description:
-      "Enterprise travel management system for Kenya Airways staff with real-time flight booking and approval workflows.",
+      "Enterprise travel management system for Kenya Airways staff with real-time flight booking via Amadeus API and secure approval workflows.",
     technologies: [
-      "Amadeus Flight API",
-      "RBAC",
       "React.js",
-      "Node.js",
+      "NestJS",
+      "Amadeus API",
+      "RBAC",
       "PostgreSQL",
     ],
     highlights: [
-      "Integrated Amadeus Flight APIs for real-time flight search, scheduling, and ticketing",
-      "Built a secure RBAC system for employee travel management and approval workflows",
-      "Deep experience in third-party API integration and airline domain data structures",
+      "Integrated Amadeus Flight APIs for real-time flight search, booking, and staff travel scheduling",
+      "Implemented secure role-based access control (RBAC) for employee travel approvals and administrative workflows",
     ],
     category: "Travel",
   },
   {
-    id: 3,
+    id: 6,
+    title: "Suprabhaatham",
+    subtitle: "Daily News Portal",
+    description:
+      "Modern news portal with headless CMS integration, GraphQL APIs, real-time notifications, and multi-language support.",
+    technologies: [
+      "Next.js",
+      "React.js",
+      "Strapi CMS",
+      "GraphQL",
+      "Node.js",
+      "PostgreSQL",
+    ],
+    highlights: [
+      "Developed a headless CMS architecture using Strapi for efficient content publishing and editorial workflows",
+      "Implemented GraphQL APIs to improve data querying efficiency and frontend performance",
+      "Designed scalable infrastructure supporting multi-language content and real-time notifications",
+    ],
+    category: "CMS",
+  },
+  {
+    id: 7,
     title: "XentryBook",
     subtitle: "Gym Access & Biometric Management App",
     description:
@@ -71,48 +153,8 @@ export const projectsData: Project[] = [
     category: "Mobile",
   },
   {
-    id: 4,
-    title: "Suprabhaatham",
-    subtitle: "Daily News Portal",
-    description:
-      "Modern news portal with headless CMS integration, real-time notifications, and multi-language support.",
-    technologies: [
-      "Strapi CMS",
-      "GraphQL",
-      "Real-Time Notifications",
-      "Next.js",
-      "PostgreSQL",
-    ],
-    highlights: [
-      "Integrated Strapi CMS for headless content management and editorial workflows",
-      "Implemented GraphQL to enhance query performance and flexible data fetching",
-      "Practical experience in real-time notifications and multi-language architecture",
-    ],
-    category: "CMS",
-  },
-  {
-    id: 5,
-    title: "Event Management CRM",
-    subtitle: "International Event Management System",
-    description:
-      "Custom CRM solution for event management with real-time communication and client interaction workflows.",
-    technologies: [
-      "Sendbird SDK",
-      "AWS",
-      "React.js",
-      "Node.js",
-      "Real-time Chat",
-    ],
-    highlights: [
-      "Developed custom CRM workflows for event registration, scheduling, and client interaction",
-      "Integrated Sendbird for real-time chat and participant communication",
-      "Client-facing project delivery experience from requirement gathering to live deployment",
-    ],
-    category: "CRM",
-  },
-  {
-    id: 6,
-    title: "Ticketing App - Teenzania",
+    id: 8,
+    title: "Teenzania",
     subtitle: "On-Site Ticketing & Loyalty System",
     description:
       "Mobile ticketing application with Bluetooth printer integration and customer loyalty management features.",

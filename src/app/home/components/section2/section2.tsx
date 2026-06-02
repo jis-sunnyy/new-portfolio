@@ -55,36 +55,36 @@ const Section2 = () => {
               <div className="skill-category">
                 <h4>Backend Power</h4>
                 <p>
-                  Node.js, NestJS, Express • Python, Django • GraphQL, REST APIs
-                  • Real-time Systems
+                  Node.js, NestJS, Express • Python, FastAPI • GraphQL, REST
+                  APIs • JWT Authentication
                 </p>
               </div>
               <div className="skill-category">
                 <h4>Data & Storage</h4>
                 <p>
-                  PostgreSQL, MongoDB, MySQL • Redis • Database Optimization •
-                  Vector Databases
+                  PostgreSQL, MongoDB, MySQL • SQLite, Oracle • Sequelize,
+                  TypeORM
                 </p>
               </div>
               <div className="skill-category">
                 <h4>Cloud & Infrastructure</h4>
                 <p>
-                  AWS (EC2, S3) • Docker • CI/CD Pipelines • Nginx • Server
-                  Management
+                  AWS, Azure, Scaleway • CI/CD (GitHub Actions, GitLab CI) •
+                  Nginx, PM2 • Linux Server Management
                 </p>
               </div>
               <div className="skill-category">
-                <h4>AI & Emerging Tech</h4>
+                <h4>AI-Assisted Development</h4>
                 <p>
-                  LangChain, LlamaIndex • TensorFlow, PyTorch • RAG Systems •
-                  NLP & Computer Vision
+                  Claude Code, Cursor • GitHub Copilot • LLM Integration •
+                  AI-powered workflow automation
                 </p>
               </div>
               <div className="skill-category">
                 <h4>Mobile Development</h4>
                 <p>
-                  React Native • iOS & Android • Native Integrations • Push
-                  Notifications • Bluetooth
+                  React Native CLI, Expo • iOS & Android • Bluetooth
+                  Integration • Barcode Scanning • NFC
                 </p>
               </div>
             </div>

@@ -65,8 +65,7 @@ export const Footer = () => {
                 })
               }
             >
-              <IoChevronUp size={20} />
-              <span>Back to Top</span>
+              <IoChevronUp size={18} />
             </div>
           </div>
         </div>

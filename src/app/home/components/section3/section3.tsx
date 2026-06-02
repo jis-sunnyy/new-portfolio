@@ -9,6 +9,8 @@ import {
   IoBarChartSharp,
   IoPeopleOutline,
   IoDocumentTextOutline,
+  IoCodeSlashOutline,
+  IoLayersOutline,
 } from "react-icons/io5";
 
 const Section3 = () => {
@@ -26,38 +28,29 @@ const Section3 = () => {
                 <div className="career-company">Bairuhatech LLP</div>
               </div>
               <div className="career-period">
-                <span className="career-badge current">Current</span>
-                <div className="career-dates">August 2022 - Present</div>
+                <div className="career-dates">August 2022 – March 2026</div>
               </div>
             </div>
 
             <div className="career-description">
               <p>
-                Leading the design, development, and delivery of multi-platform
-                applications while architecting cloud infrastructure on AWS.
-                Working directly with international clients across Dubai and
-                Nairobi, managing full deployment cycles and integrating
-                cutting-edge AI/LLM capabilities into production systems.
+                Led the architecture and delivery of production-grade web and
+                mobile applications across logistics, facility management, and
+                enterprise SaaS platforms. Architected and deployed cloud
+                infrastructure on AWS and Scaleway, implemented CI/CD pipelines,
+                and delivered on-site enterprise system deployments in Dubai
+                (UAE) and Nairobi (Kenya).
               </p>
             </div>
 
             <div className="career-highlights">
               <div className="highlight-item">
                 <span className="highlight-icon">
-                  <IoRocketSharp />
-                </span>
-                <span>
-                  Reduced project delivery timelines by 20% through agile
-                  methodologies
-                </span>
-              </div>
-              <div className="highlight-item">
-                <span className="highlight-icon">
                   <IoGlobeOutline />
                 </span>
                 <span>
-                  Delivered onsite implementations in Dubai (UAE) and Nairobi
-                  (Kenya)
+                  Delivered on-site enterprise deployments in Dubai (UAE) and
+                  Nairobi (Kenya)
                 </span>
               </div>
               <div className="highlight-item">
@@ -65,8 +58,17 @@ const Section3 = () => {
                   <IoFlashSharp />
                 </span>
                 <span>
-                  Architected scalable cloud infrastructure improving
-                  performance and uptime
+                  Architected cloud infrastructure on AWS and Scaleway for
+                  high-availability production workloads
+                </span>
+              </div>
+              <div className="highlight-item">
+                <span className="highlight-icon">
+                  <IoRocketSharp />
+                </span>
+                <span>
+                  Implemented CI/CD pipelines and DevOps automation improving
+                  deployment efficiency
                 </span>
               </div>
               <div className="highlight-item">
@@ -74,8 +76,50 @@ const Section3 = () => {
                   <IoHardwareChipOutline />
                 </span>
                 <span>
-                  Integrated AI/LLM APIs and vector databases for intelligent
-                  solutions
+                  Leveraged Claude Code and Cursor to accelerate development and
+                  improve code quality
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="career-item">
+            <div className="career-header">
+              <div>
+                <h3 className="career-title">Full Stack Developer Intern</h3>
+                <div className="career-company">Bairuhatech LLP</div>
+              </div>
+              <div className="career-period">
+                <div className="career-dates">January 2021 – July 2022</div>
+              </div>
+            </div>
+
+            <div className="career-description">
+              <p>
+                Contributed to the development of web and mobile applications
+                while managing concurrent responsibilities at TCS. Assisted in
+                building scalable backend services and responsive frontend
+                components, and collaborated with the senior engineering team to
+                implement new features and API integrations.
+              </p>
+            </div>
+
+            <div className="career-highlights">
+              <div className="highlight-item">
+                <span className="highlight-icon">
+                  <IoCodeSlashOutline />
+                </span>
+                <span>
+                  Built scalable backend services and responsive frontend
+                  components
+                </span>
+              </div>
+              <div className="highlight-item">
+                <span className="highlight-icon">
+                  <IoLayersOutline />
+                </span>
+                <span>
+                  Implemented new features and third-party API integrations
                 </span>
               </div>
             </div>
@@ -90,17 +134,17 @@ const Section3 = () => {
                 </div>
               </div>
               <div className="career-period">
-                <div className="career-dates">December 2019 - July 2022</div>
+                <div className="career-dates">December 2019 – July 2022</div>
               </div>
             </div>
 
             <div className="career-description">
               <p>
-                Improved internal business workflows through automation and
-                process optimization in a global delivery environment.
-                Collaborated with cross-functional teams to ensure high-quality
-                project deliverables and developed technical documentation for
-                system enhancements.
+                Supported enterprise operations by improving internal workflows
+                through automation and process optimization. Collaborated with
+                global teams to ensure high-quality deliverables and developed
+                technical documentation for internal tools and system
+                enhancements.
               </p>
             </div>
 
@@ -110,7 +154,7 @@ const Section3 = () => {
                   <IoBarChartSharp />
                 </span>
                 <span>
-                  Enhanced operational efficiency through automation tools
+                  Enhanced operational efficiency through workflow automation
                 </span>
               </div>
               <div className="highlight-item">
@@ -126,8 +170,8 @@ const Section3 = () => {
                   <IoDocumentTextOutline />
                 </span>
                 <span>
-                  Developed comprehensive technical documentation and process
-                  improvements
+                  Developed technical documentation and process improvement
+                  initiatives
                 </span>
               </div>
             </div>

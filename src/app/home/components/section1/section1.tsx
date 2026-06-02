@@ -20,7 +20,7 @@ const Section1 = () => {
 
         <div className="hero-social">
           <a
-            href="https://github.com/jissunny"
+            href="https://github.com/jis-sunnyy"
             target="_blank"
             rel="noopener noreferrer"
             className="social-link"

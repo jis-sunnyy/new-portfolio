@@ -46,7 +46,7 @@ export const Footer = () => {
               </a>
 
               <a
-                href="/Jis_Lead_Software_Engineer.pdf"
+                href="/Jis_Software_Engineer_CV.pdf"
                 download="Jis_Sunny_Resume.pdf"
                 className="footer-icon-link"
               >

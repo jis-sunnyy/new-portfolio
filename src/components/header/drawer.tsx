@@ -45,7 +45,7 @@ const MainDrawer = (props: any) => {
             </div>
           </div>
           <a
-            href="/Jis_Lead_Software_Engineer.pdf"
+            href="/Jis_Software_Engineer_CV.pdf"
             download="Jis_Sunny_Resume.pdf"
             className="drawer-txt1"
             style={{ textDecoration: "none", color: "inherit" }}

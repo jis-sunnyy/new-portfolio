@@ -10,7 +10,7 @@
   background-color: vars.$a1;
   z-index: 1000;
   transition: background-color 0.4s ease;
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 768px) {
     display: none;
   }
   &.scrolled {
@@ -36,14 +36,19 @@
 
 .drawer-item {
   display: none;
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 768px) {
     background-color: vars.$a1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 9vh;
     padding: 0px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: background-color 0.4s ease;
+    z-index: 1000;
   }
 
   &.a {

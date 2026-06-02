@@ -81,7 +81,7 @@ export const Header = ({ scrollToSection, activeSection }: any) => {
                 </div>
                 <div className="">
                   <a
-                    href="/Jis_Lead_Software_Engineer.pdf"
+                    href="/Jis_Software_Engineer_CV.pdf"
                     download="Jis_Sunny_Resume.pdf"
                     className={`header-txt1 ${activeSection}`}
                   >

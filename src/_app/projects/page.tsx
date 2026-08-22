@@ -5,7 +5,7 @@ import React from "react";
 const AllProjects = () => {
   return (
     <div>
-      <Header />
+      <Header scrollToSection={() => {}} activeSection="" />
       <div className="page-body">
         <div className="page-container">
           <div className="page-header">

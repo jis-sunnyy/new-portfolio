@@ -7,7 +7,7 @@ const Section6 = () => {
     { label: "email", val: identity.email, href: `mailto:${identity.email}` },
     { label: "github", val: identity.github, href: identity.githubUrl, external: true },
     { label: "linkedin", val: identity.linkedin, href: identity.linkedinUrl, external: true },
-    { label: "resume", val: "Jis_Lead_Software_Engineer.pdf", href: identity.resumeUrl },
+    { label: "resume", val: "Jis_Software_Engineer_CV.pdf", href: identity.resumeUrl },
     { label: "location", val: `${identity.based} · ${identity.timezone}`, href: null },
   ];
 

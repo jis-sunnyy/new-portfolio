@@ -60,6 +60,18 @@ export const Header = ({ scrollToSection, activeSection }: HeaderProps) => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const go = (id: string) => {
     scrollToSection(id);
     setMenuOpen(false);
@@ -109,22 +121,21 @@ export const Header = ({ scrollToSection, activeSection }: HeaderProps) => {
         </div>
       </div>
 
-      {menuOpen && (
-        <div className="mobile-menu">
-          {NAV_LINKS.map((l) => (
-            <button key={l.id} onClick={() => go(l.id)}>
-              {l.num}. {l.label}
-            </button>
-          ))}
-          <a
-            href={identity.resumeUrl}
-            download="Jis_Sunny_Resume.pdf"
-            onClick={() => setMenuOpen(false)}
-          >
-            → resume.pdf
-          </a>
-        </div>
-      )}
+      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        {NAV_LINKS.map((l) => (
+          <button key={l.id} onClick={() => go(l.id)}>
+            <span className="num">{l.num}.</span>
+            <span>{l.label}</span>
+          </button>
+        ))}
+        <a
+          href={identity.resumeUrl}
+          download="Jis_Sunny_Resume.pdf"
+          onClick={() => setMenuOpen(false)}
+        >
+          → resume.pdf
+        </a>
+      </div>
     </nav>
   );
 };

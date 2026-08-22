@@ -67,13 +67,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             <div className="modal-body">
               <div className="modal-section">
-                <h5>// overview</h5>
+                <h5>{"// overview"}</h5>
                 <p>{project.description}</p>
-                <h5>// problem</h5>
+                <h5>{"// problem"}</h5>
                 <p>{project.problem}</p>
-                <h5>// solution</h5>
+                <h5>{"// solution"}</h5>
                 <p>{project.solution}</p>
-                <h5>// highlights</h5>
+                <h5>{"// highlights"}</h5>
                 <ul>
                   {project.highlights.map((h) => (
                     <li key={h}>{h}</li>

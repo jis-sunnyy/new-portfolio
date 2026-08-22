@@ -74,7 +74,7 @@ src/config/variables.scss                        (optional — only old SCSS ref
 > `src/assets/images/m2.gif` / `mouse.gif` are no longer referenced; delete if you like.
 
 ### `public/`
-Make sure `public/Jis_Lead_Software_Engineer.pdf` still exists (the resume link points there).
+Make sure `public/Jis_Software_Engineer_CV.pdf` still exists (the resume link points there).
 
 ---
 

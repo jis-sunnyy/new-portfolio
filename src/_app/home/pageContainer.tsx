@@ -11,7 +11,7 @@ import Section5 from "./components/section5/section5";
 import { useEffect, useRef, useState } from "react";
 
 export default function PageContainer() {
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const sectionRefs: any = {
     a: useRef(null),
@@ -79,7 +79,7 @@ export default function PageContainer() {
 
   return (
     <div className="page-container">
-      <Header scrollToSection={scrollToSection} activeSection={activeSection} />
+      <Header scrollToSection={scrollToSection} activeSection={activeSection || "a"} />
       <div className="page-body">
         <section id="a" ref={sectionRefs.a}>
           <Section1 />

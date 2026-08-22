@@ -13,7 +13,7 @@ export const identity = {
   githubUrl: "https://github.com/jissunny",
   linkedin: "linkedin.com/in/jis-sunny",
   linkedinUrl: "https://www.linkedin.com/in/jis-sunny-28241815a/",
-  resumeUrl: "/Jis_Lead_Software_Engineer.pdf",
+  resumeUrl: "/Jis_Software_Engineer_CV.pdf",
 };
 
 export const about = {
@@ -77,10 +77,21 @@ export interface CareerItem {
 
 export const career: CareerItem[] = [
   {
-    when: "Aug 2022 — Present",
+    when: "Jun 2026 — Present",
+    role: "Senior Software Engineer",
+    company: "Armia Systems Pvt. Ltd, Infopark Kochi",
+    current: true,
+    desc: "Designing and engineering scalable enterprise platforms and high-availability cloud architecture. Collaborating with cross-functional teams to build next-generation applications and integrate intelligent features.",
+    bullets: [
+      "Architecting robust frontend and backend solutions for enterprise scalability",
+      "Leading implementation and design of mission-critical software systems",
+      "Driving best practices in code quality, modern tooling, and deployment efficiency",
+    ],
+  },
+  {
+    when: "Aug 2022 — Jun 2026",
     role: "Software Engineer",
     company: "Bairuhatech LLP",
-    current: true,
     desc: "Leading multi-platform application design and delivery while architecting cloud infrastructure on AWS. Working directly with international clients across Dubai and Nairobi, managing full deployment cycles and integrating cutting-edge AI/LLM capabilities into production systems.",
     bullets: [
       "Reduced delivery timelines by 20% through agile methodologies",

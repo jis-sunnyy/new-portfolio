@@ -1,88 +1,76 @@
 "use client";
 import React from "react";
 import "./styles.scss";
-import {
-  IoLogoGithub,
-  IoLogoLinkedin,
-  IoMail,
-  IoLocationSharp,
-} from "react-icons/io5";
+import { IoArrowForward } from "react-icons/io5";
+import { mailto, profile } from "@/data/profile";
+
+const channels = [
+  { label: "Email", value: profile.email, href: mailto },
+  { label: "LinkedIn", value: profile.linkedinHandle, href: profile.linkedin },
+  { label: "GitHub", value: profile.githubHandle, href: profile.github },
+  {
+    label: "Résumé",
+    value: "Download PDF",
+    href: profile.resumeUrl,
+    download: true,
+  },
+];
 
 const Section5 = () => {
   return (
-    <div className="sec5-main-box">
-      <div className="sec5-container">
-        <div className="common-txt1">Let&apos;s Connect</div>
-        <hr />
-
-        <div className="contact-intro">
-          <p>
-            I&apos;m always interested in hearing about new projects,
-            opportunities, or just having a chat about technology. Feel free to
-            reach out!
-          </p>
+    <div className="section" id="contact">
+      <div className="section-inner">
+        <div className="section-head" data-reveal>
+          <span className="section-index">04</span>
+          <h2 className="section-title">Contact</h2>
         </div>
 
-        <div className="contact-content">
-          <div className="contact-grid">
-            <a
-              href="mailto:jis.sunny@gmail.com"
-              className="contact-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="contact-icon">
-                <IoMail />
-              </div>
-              <h3>Email</h3>
-              <p>jis.sunny@gmail.com</p>
-            </a>
+        <div className="section-body">
+          <p className="lede" data-reveal>
+            Open to new projects and roles. If you have something in mind — or
+            just want to talk shop — the fastest route is email.
+          </p>
 
-            <a
-              href="https://www.linkedin.com/in/jis-sunny-28241815a/"
-              className="contact-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="contact-icon">
-                <IoLogoLinkedin />
+          <ul className="contact-list">
+            {channels.map((channel, index) => (
+              <li
+                key={channel.label}
+                data-reveal
+                style={{ transitionDelay: `${index * 55}ms` }}
+              >
+                <a
+                  className="contact-row"
+                  href={channel.href}
+                  target={
+                    channel.href.startsWith("mailto") ? undefined : "_blank"
+                  }
+                  rel="noopener noreferrer"
+                  download={
+                    channel.download ? profile.resumeFileName : undefined
+                  }
+                >
+                  <span className="contact-label">{channel.label}</span>
+                  <span className="contact-value">{channel.value}</span>
+                  <IoArrowForward className="contact-arrow" size={15} />
+                </a>
+              </li>
+            ))}
+            <li data-reveal style={{ transitionDelay: "220ms" }}>
+              <div className="contact-row contact-row--static">
+                <span className="contact-label">Location</span>
+                <span className="contact-value">{profile.location}</span>
               </div>
-              <h3>LinkedIn</h3>
-              <p>Connect with me</p>
-            </a>
+            </li>
+          </ul>
 
-            <a
-              href="https://github.com/jissunny"
-              className="contact-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="contact-icon">
-                <IoLogoGithub />
-              </div>
-              <h3>GitHub</h3>
-              <p>Check out my work</p>
+          <div className="contact-cta" data-reveal>
+            <a href={mailto} className="btn btn--solid">
+              Get in touch
+              <IoArrowForward />
             </a>
-
-            <div className="contact-card">
-              <div className="contact-icon">
-                <IoLocationSharp />
-              </div>
-              <h3>Location</h3>
-              <p>Calicut, Kerala, India</p>
-            </div>
-          </div>
-
-          <div className="contact-cta">
-            <h2>Ready to work together?</h2>
-            <p>
-              Whether you have a project in mind or just want to discuss
-              technology, I&apos;d love to hear from you.
-            </p>
-            <a href="mailto:jis.sunny@gmail.com" className="cta-button">
-              <IoMail />
-              <span>Get In Touch</span>
-            </a>
+            <span className="contact-cta-note">
+              Usually replies within a day.
+            </span>
           </div>
         </div>
       </div>

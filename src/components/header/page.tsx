@@ -1,116 +1,84 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import React, { useState } from "react";
 import "./styles.scss";
 import MainDrawer from "./drawer";
+import { profile } from "@/data/profile";
+import ThemeToggle from "@/components/theme/themeToggle";
 
-export const Header = ({ scrollToSection, activeSection }: any) => {
+const navItems = [
+  { id: "b", label: "About" },
+  { id: "c", label: "Career" },
+  { id: "d", label: "Projects" },
+  { id: "e", label: "Contact" },
+];
+
+interface HeaderProps {
+  scrollToSection?: (sectionId: string) => void;
+  activeSection?: string | null;
+}
+
+export const Header = ({ scrollToSection, activeSection }: HeaderProps) => {
   const [isDrawer, setIsDrawer] = useState(false);
-  console.log(isDrawer);
 
-  const [lastScrollY, setLastScrollY] = useState<any>(0);
-
-  const handleNavigation = useCallback(
-    (e: any) => {
-      const window = e.currentTarget;
-      if (lastScrollY > window.scrollY) {
-        setLastScrollY(false);
-      } else if (lastScrollY + 5 < window.scrollY) {
-        setLastScrollY(true);
-      }
-    },
-    [lastScrollY]
-  );
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleNavigation);
-      return () => {
-        window.removeEventListener("scroll", handleNavigation);
-      };
+  const goTo = (sectionId: string) => {
+    if (scrollToSection) {
+      scrollToSection(sectionId);
+    } else if (typeof window !== "undefined") {
+      window.location.href = `/#${sectionId}`;
     }
-    console.log("lastScrollY", lastScrollY);
-  }, [handleNavigation, lastScrollY]);
+  };
 
   return (
     <>
-      <div
-        className={
-          lastScrollY
-            ? `header scrolled ${activeSection}`
-            : `header ${activeSection}`
-        }
-      >
-        <Container>
-          <Row>
-            <Col md="3"></Col>
-            <Col md="6">
-              <div className="header-box1">
-                <div className="">
-                  <div
-                    className={`header-txt1 ${activeSection}`}
-                    onClick={() => scrollToSection("b")}
-                  >
-                    About
-                  </div>
-                </div>
-                <div className="">
-                  <div
-                    className={`header-txt1 ${activeSection}`}
-                    onClick={() => scrollToSection("c")}
-                  >
-                    Career
-                  </div>
-                </div>
-                <div className="">
-                  <div
-                    className={`header-txt1 ${activeSection}`}
-                    onClick={() => scrollToSection("d")}
-                  >
-                    Projects
-                  </div>
-                </div>
-                <div className="">
-                  <div
-                    className={`header-txt1 ${activeSection}`}
-                    onClick={() => scrollToSection("e")}
-                  >
-                    Contact
-                  </div>
-                </div>
-                <div className="">
-                  <a
-                    href="/Jis_Software_Engineer_CV.pdf"
-                    download="Jis_Sunny_Resume.pdf"
-                    className={`header-txt1 ${activeSection}`}
-                  >
-                    Resume
-                  </a>
-                </div>
-              </div>
-            </Col>
-            <Col md="3"></Col>
-          </Row>
-        </Container>
-      </div>
+      <header className="site-header">
+        <div className="site-header-inner">
+          <button className="brand" onClick={() => goTo("a")}>
+            <span className="brand-name">{profile.name}</span>
+            <span className="brand-role">{profile.role}</span>
+          </button>
 
-      <div className={`drawer-item ${activeSection}`}>
-        <div className="header-txt2"></div>
-        <button
-          className={`hamburger ${isDrawer ? "hamburger--open" : ""}`}
-          onClick={() => setIsDrawer((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
-        </button>
-      </div>
+          <nav className="site-nav">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                className={`site-nav-link ${
+                  activeSection === item.id ? "is-active" : ""
+                }`}
+                onClick={() => goTo(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+            <a
+              href={profile.resumeUrl}
+              download={profile.resumeFileName}
+              className="site-nav-link site-nav-link--cv"
+            >
+              Résumé
+            </a>
+            <ThemeToggle />
+          </nav>
+
+          <div className="header-mobile-actions">
+            <ThemeToggle />
+            <button
+              className={`hamburger ${isDrawer ? "hamburger--open" : ""}`}
+              onClick={() => setIsDrawer((v) => !v)}
+              aria-label="Toggle menu"
+              aria-expanded={isDrawer}
+            >
+              <span className="hamburger-line" />
+              <span className="hamburger-line" />
+            </button>
+          </div>
+        </div>
+      </header>
 
       <MainDrawer
         open={isDrawer}
         close={() => setIsDrawer(false)}
-        scrollToSection={scrollToSection}
+        scrollToSection={goTo}
+        activeSection={activeSection}
       />
     </>
   );

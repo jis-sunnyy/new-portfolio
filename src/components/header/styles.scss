@@ -1,304 +1,289 @@
 @use "../../config/variables.scss" as vars;
 
-// ── Desktop navbar ─────────────────────────────────────────────────
-.header {
+// ── Fixed bar ──────────────────────────────────────────────────────
+// One colour for every section. A single hairline separates it from
+// the page; the active link is marked with the accent rule.
+
+.site-header {
   position: fixed;
   top: 0;
-  height: 9vh;
-  width: 100%;
-  padding: 16px;
-  background-color: vars.$a1;
-  z-index: 1000;
-  transition: background-color 0.4s ease;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--line);
+  z-index: 1200;
+  // Padding sits on the bar, not the inner track, so the brand lines
+  // up with the section grid below it.
+  padding: 0 var(--gutter);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$bp-md) {
+    padding: 0 28px;
+  }
+
+  @media screen and (max-width: vars.$bp-sm) {
+    padding: 0 20px;
+  }
+}
+
+.site-header-inner {
+  max-width: var(--maxw);
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  text-align: left;
+  min-width: 0;
+}
+
+.brand-name {
+  font-family: vars.$SemiBold;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  white-space: nowrap;
+}
+
+.brand-role {
+  font-family: vars.$Regular;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  white-space: nowrap;
+
+  @media screen and (max-width: vars.$bp-lg) {
+    display: none;
+  }
+}
+
+// ── Desktop nav ────────────────────────────────────────────────────
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  @media screen and (max-width: vars.$bp-md) {
+    display: none;
+  }
+}
+
+.site-nav-link {
+  position: relative;
+  font-family: vars.$Medium;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--fg-dim);
+  padding: 4px 0 5px;
+  transition: color 0.18s ease;
+
+  // Underline is a scaled pseudo-element so it sweeps in from the left
+  // rather than appearing all at once.
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.26s ease;
+  }
+
+  &:hover {
+    color: var(--fg);
+  }
+
+  &.is-active {
+    color: var(--fg);
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.site-nav-link--cv {
+  padding: 7px 14px;
+  border: 1px solid var(--line-strong);
+  color: var(--fg-muted);
+  transition: border-color 0.18s ease, color 0.18s ease;
+
+  &::after {
     display: none;
   }
 
-  &.a { background-color: vars.$a1; }
-  &.b { background-color: vars.$b1; }
-  &.c { background-color: vars.$c1; }
-  &.d { background-color: vars.$d1; }
-  &.e { background-color: vars.$e1; }
-}
-
-.header-box1 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.header-txt1 {
-  color: vars.$a2;
-  font-size: 16px;
-  font-family: vars.$SemiBold;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.2s ease;
-  text-decoration: none;
-
   &:hover {
-    color: #fff !important;
-    transform: translateY(-2px);
+    border-color: var(--accent);
+    color: var(--accent);
   }
-
-  &.a { color: vars.$a2; }
-  &.b { color: vars.$b2; }
-  &.c { color: vars.$c2; }
-  &.d { color: vars.$d2; }
-  &.e { color: vars.$e2; }
 }
 
-.header-txt2 {
-  color: vars.$a2;
-  font-size: 16px;
-  font-family: vars.$SemiBold;
-  cursor: pointer;
-}
+// ── Mobile actions (theme toggle + menu) ───────────────────────────
 
-// ── Mobile topbar ──────────────────────────────────────────────────
-.drawer-item {
+.header-mobile-actions {
   display: none;
 
-  @media screen and (max-width: 768px) {
-    background-color: vars.$a1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 9vh;
-    padding: 0 20px;
+  @media screen and (max-width: vars.$bp-md) {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    transition: background-color 0.4s ease;
-    z-index: 1100;
+    gap: 14px;
   }
-
-  &.a { background-color: vars.$a1; }
-  &.b { background-color: vars.$b1; }
-  &.c { background-color: vars.$c1; }
-  &.d { background-color: vars.$d1; }
-  &.e { background-color: vars.$e1; }
 }
 
-// ── Animated hamburger ─────────────────────────────────────────────
+// ── Hamburger / close toggle ───────────────────────────────────────
+
 .hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 6px;
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 8px;
-  transition: background 0.2s ease;
+  display: none;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  &:active {
-    transform: scale(0.93);
+  @media screen and (max-width: vars.$bp-md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 7px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    position: relative;
+    z-index: 1300;
   }
 }
 
 .hamburger-line {
   display: block;
-  height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: width 0.3s ease, transform 0.35s ease, opacity 0.25s ease;
-
-  &:nth-child(1) { width: 26px; }
-  &:nth-child(2) { width: 20px; }
-  &:nth-child(3) { width: 14px; }
+  width: 26px;
+  height: 1px;
+  background: var(--fg);
+  transition: transform 0.28s ease, width 0.28s ease;
 }
 
 .hamburger--open .hamburger-line {
   &:nth-child(1) {
-    width: 24px;
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(4px) rotate(45deg);
   }
+
   &:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  &:nth-child(3) {
-    width: 24px;
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-4px) rotate(-45deg);
   }
 }
 
-// ── Full-screen overlay menu ───────────────────────────────────────
+// ── Full-screen menu ───────────────────────────────────────────────
+
 .fs-overlay {
   position: fixed;
   inset: 0;
-  z-index: 1200;
-  background: #fff;
+  z-index: 1100;
+  background: var(--bg);
   display: flex;
   flex-direction: column;
-  padding: 0 28px 44px;
-
-  transform: translateY(-100%);
+  padding: calc(var(--header-h) + 32px) 28px 40px;
   opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+  transition: opacity 0.22s ease;
+
+  @media screen and (max-width: vars.$bp-sm) {
+    padding: calc(var(--header-h) + 24px) 20px 32px;
+  }
 
   &--open {
-    transform: translateY(0);
     opacity: 1;
   }
 }
 
-// X close button — top right, pure black
-.fs-close {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 36px;
-  height: 36px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-
-  .fs-close-line {
-    position: absolute;
-    width: 22px;
-    height: 2px;
-    background: #000;
-    border-radius: 2px;
-
-    &:nth-child(1) { transform: rotate(45deg); }
-    &:nth-child(2) { transform: rotate(-45deg); }
-  }
-
-  &:hover .fs-close-line {
-    background: rgba(0, 0, 0, 0.5);
-  }
+.fs-top {
+  padding-bottom: 20px;
 }
 
-// Nav list
+.fs-top-label {
+  font-family: vars.$Medium;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
 .fs-nav {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0;
+  border-top: 1px solid var(--line);
 }
 
-// All nav items — uniform
 .fs-nav-item {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 0;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: #000;
-  text-align: left;
+  align-items: baseline;
+  gap: 16px;
   width: 100%;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  color: var(--fg);
 
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transform: translateY(10px);
+  transition: opacity 0.28s ease, transform 0.28s ease, color 0.18s ease;
 
-  &--in {
+  .fs-overlay--open & {
     opacity: 1;
     transform: translateY(0);
   }
 
-  &:first-child {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  &.is-active .fs-nav-label {
+    color: var(--accent);
   }
+}
 
-  &:hover .fs-nav-label {
-    opacity: 0.6;
-  }
+.fs-nav-index {
+  font-family: vars.$Medium;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
 }
 
 .fs-nav-label {
   font-family: vars.$SemiBold;
-  font-size: 38px;
+  font-size: 30px;
   line-height: 1;
-  color: #000;
-  transition: opacity 0.2s ease;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  transition: color 0.18s ease;
 }
 
 .fs-nav-ext {
-  color: rgba(0, 0, 0, 0.4);
-  flex-shrink: 0;
+  margin-left: auto;
+  color: var(--fg-dim);
+  align-self: center;
 }
 
-// Contact — full-width black CTA button
-.fs-nav-cta {
-  margin-top: 28px;
-  width: 100%;
-  border: none;
-  background: #000;
-  border-radius: 12px;
-  padding: 22px 24px;
-  cursor: pointer;
-  font-family: vars.$SemiBold;
-  font-size: 18px;
-  color: #fff;
-  letter-spacing: 0.3px;
-
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.35s ease, transform 0.35s ease, background 0.2s ease;
-
-  &--in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
-
-  &:hover {
-    background: #222;
-  }
-}
-
-// Social icons row
 .fs-footer {
   display: flex;
-  gap: 12px;
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.35s ease 0.42s, transform 0.35s ease 0.42s;
-
-  &--in {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  gap: 10px;
+  padding-top: 28px;
 }
 
 .fs-social {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(0, 0, 0, 0.2);
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line-strong);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000;
-  text-decoration: none;
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease,
-    transform 0.2s ease;
+  color: var(--fg-muted);
+  transition: border-color 0.18s ease, color 0.18s ease;
 
   &:hover {
-    border-color: #000;
-    background: #000;
-    color: #fff;
-    transform: translateY(-3px);
+    border-color: var(--accent);
+    color: var(--accent);
   }
 }

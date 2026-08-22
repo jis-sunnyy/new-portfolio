@@ -1,155 +1,107 @@
 @use "../../config/variables.scss" as vars;
 
 .footer {
-  background-color: vars.$g1;
-  padding: 50px 0 30px;
+  background-color: var(--bg);
+  border-top: 1px solid var(--line-strong);
+  padding: 44px var(--gutter) 32px;
 
-  @media screen and (max-width: 768px) {
-    padding: 40px 0 25px;
+  @media screen and (max-width: vars.$bp-md) {
+    padding: 36px 28px 28px;
+  }
+
+  @media screen and (max-width: vars.$bp-sm) {
+    padding: 32px 20px 24px;
   }
 }
 
-.footer-container {
-  max-width: 1200px;
+.footer-inner {
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 40px;
-
-  @media screen and (max-width: 768px) {
-    padding: 0 30px;
-  }
-
-  @media screen and (max-width: 412px) {
-    padding: 0 20px;
-  }
 }
 
-.footer-content {
+.footer-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-bottom: 30px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$bp-sm) {
     flex-direction: column;
-    gap: 30px;
     align-items: flex-start;
+    gap: 20px;
   }
-}
-
-.footer-left {
-  flex: 1;
 }
 
 .footer-brand {
-  h3 {
-    font-family: vars.$Bold;
-    font-size: 24px;
-    color: #002400;
-    margin: 0 0 8px 0;
-
-    @media screen and (max-width: 412px) {
-      font-size: 20px;
-    }
-  }
-
-  p {
-    font-family: vars.$Regular;
-    font-size: 14px;
-    color: rgba(0, 36, 0, 0.7);
-    margin: 0;
-
-    @media screen and (max-width: 412px) {
-      font-size: 13px;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.footer-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    justify-content: flex-start;
-  }
+.footer-name {
+  font-family: vars.$SemiBold;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: var(--fg);
 }
 
-.footer-social {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+.footer-role {
+  font-family: vars.$Regular;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
 }
 
-.footer-icon-link {
+.footer-actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
+  gap: 8px;
 }
 
 .footer-icon {
-  color: #002400;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: #ff5154;
-    transform: scale(1.2) translateY(-2px);
-  }
-}
-
-.footer-right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    justify-content: flex-start;
-  }
-}
-
-.footer-scroll-top {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line-strong);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  background-color: vars.$a1;
-  border-radius: 50%;
-  cursor: pointer;
-  color: #d3f350;
-  transition: all 0.3s ease;
-
-  svg {
-    transition: transform 0.3s ease;
-  }
+  color: var(--fg-muted);
+  transition: border-color 0.18s ease, color 0.18s ease;
 
   &:hover {
-    background-color: darken(vars.$a1, 5%);
-    transform: translateY(-3px);
-
-    svg {
-      transform: translateY(-3px);
-    }
+    border-color: var(--accent);
+    color: var(--accent);
   }
 }
 
 .footer-bottom {
-  padding-top: 25px;
-  text-align: center;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 
   p {
     font-family: vars.$Regular;
-    font-size: 14px;
-    color: rgba(0, 36, 0, 0.6);
-    margin: 0;
+    font-size: 12px;
+    color: var(--fg-dim);
+  }
+}
 
-    @media screen and (max-width: 412px) {
-      font-size: 12px;
-    }
+.footer-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: vars.$Medium;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  transition: color 0.18s ease;
+
+  &:hover {
+    color: var(--accent);
   }
 }

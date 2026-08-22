@@ -1,233 +1,301 @@
 @use "../../../../config/variables.scss" as vars;
 
-.sec4-container {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.section-divider {
-  border: 0;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin: 30px 0 60px 0;
-}
+// Cells share single hairlines: the grid draws top/left, each cell
+// draws right/bottom. No gaps, no rounded corners, no shadows.
 
 .projects-grid {
+  margin-top: 48px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin-top: 40px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$bp-md) {
     grid-template-columns: 1fr;
-    gap: 20px;
+    margin-top: 36px;
   }
 }
 
 .project-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 30px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  transition: all 0.3s ease;
+  padding: 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.18s ease;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-4px);
+    background-color: var(--bg-raised);
   }
 
-  @media screen and (max-width: 768px) {
-    padding: 20px;
+  @media screen and (max-width: vars.$bp-sm) {
+    padding: 22px 20px;
   }
 }
 
-.project-card-header {
+.project-card-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line);
 }
 
 .project-number {
-  font-family: vars.$Bold;
-  font-size: 48px;
-  color: rgba(255, 255, 255, 0.15);
-  line-height: 1;
-
-  @media screen and (max-width: 768px) {
-    font-size: 36px;
-  }
+  font-family: vars.$Medium;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
 }
 
 .project-category {
-  font-family: vars.$SemiBold;
-  font-size: 12px;
-  color: vars.$d2;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 6px 12px;
-  border-radius: 20px;
+  font-family: vars.$Medium;
+  font-size: 10px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.project-card-body {
-  position: relative;
+  color: var(--fg-dim);
 }
 
 .project-title {
-  font-family: vars.$Bold;
-  font-size: 28px;
-  color: vars.$d2;
-  margin-bottom: 8px;
-  line-height: 1.2;
-
-  @media screen and (max-width: 768px) {
-    font-size: 24px;
-  }
+  font-family: vars.$SemiBold;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--fg);
 }
 
 .project-subtitle {
-  font-family: vars.$Regular;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 20px;
-
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
-  }
+  font-family: vars.$Sans;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+  margin-top: 8px;
 }
 
-.project-tech-stack {
+.project-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 6px;
+  margin-top: 18px;
 }
 
 .tech-tag {
-  font-family: vars.$Medium;
-  font-size: 12px;
-  color: vars.$d2;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 11px;
-    padding: 5px 10px;
-  }
+  font-family: vars.$Regular;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--fg-muted);
+  border: 1px solid var(--line-strong);
+  padding: 4px 9px;
 }
 
-.project-details {
-  overflow: hidden;
-
-  &.collapsed {
-    display: none;
-  }
-
-  &.expanded {
-    display: block;
-    margin-top: 20px;
-  }
-}
+// ── Expanded panel ─────────────────────────────────────────────────
 
 .project-description {
-  font-family: vars.$Regular;
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
-  margin-bottom: 20px;
+  font-family: vars.$Sans;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg-muted);
+}
 
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
-  }
+.project-highlights-label {
+  font-family: vars.$Medium;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .project-highlights {
-  h4 {
-    font-family: vars.$SemiBold;
-    font-size: 16px;
-    color: vars.$d2;
-    margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-    @media screen and (max-width: 768px) {
-      font-size: 15px;
-    }
-  }
+  li {
+    position: relative;
+    padding-left: 20px;
+    font-family: vars.$Regular;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--fg-muted);
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      font-family: vars.$Regular;
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.75);
-      line-height: 1.8;
-      padding-left: 20px;
-      position: relative;
-      margin-bottom: 10px;
-
-      &:before {
-        content: "▹";
-        position: absolute;
-        left: 0;
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 18px;
-      }
-
-      @media screen and (max-width: 768px) {
-        font-size: 13px;
-      }
+    &::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--fg-dim);
     }
   }
 }
 
-.expand-btn {
-  font-family: vars.$SemiBold;
-  font-size: 14px;
-  color: vars.$d2;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
+.project-toggle {
+  margin-top: auto;
+  padding-top: 24px;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 20px;
-  transition: all 0.3s ease;
-
-  svg {
-    transition: transform 0.3s ease;
-  }
+  align-self: flex-start;
+  font-family: vars.$Medium;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  transition: color 0.18s ease;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateX(3px);
-
-    svg {
-      transform: translateX(3px);
-    }
+    color: var(--accent);
   }
+}
 
-  @media screen and (max-width: 768px) {
-    font-size: 13px;
-    padding: 8px 16px;
+.project-toggle-icon {
+  transition: transform 0.18s ease;
+}
+
+.project-toggle:hover .project-toggle-icon {
+  transform: translateX(3px);
+}
+
+// ── Modal ──────────────────────────────────────────────────────────
+// Detail lives here rather than inline: the grid shares hairlines between
+// cells, so cells must stay equal height — an inline panel would stretch
+// the whole row and leave its neighbour with a large empty gap.
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+
+  @media screen and (max-width: vars.$bp-sm) {
+    padding: 0;
+    align-items: flex-end;
   }
+}
+
+.project-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  animation: modal-fade 0.2s ease-out both;
+}
+
+.project-modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  animation: modal-rise 0.24s ease-out both;
+
+  @media screen and (max-width: vars.$bp-sm) {
+    max-height: 88vh;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+  }
+}
+
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.project-modal-head {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.project-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  color: var(--fg-dim);
+  transition: color 0.18s ease, border-color 0.18s ease;
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--line-strong);
+  }
+}
+
+.project-modal-body {
+  overflow-y: auto;
+  padding: 26px 24px 30px;
+}
+
+.project-modal-title {
+  font-family: vars.$SemiBold;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+
+.project-modal-subtitle {
+  font-family: vars.$Sans;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+  margin-top: 8px;
+}
+
+.project-modal-description {
+  font-family: vars.$Sans;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  margin-top: 20px;
+}
+
+.project-modal-label {
+  font-family: vars.$Medium;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-top: 26px;
+  margin-bottom: 12px;
+}
+
+.project-modal-tech {
+  margin-top: 0;
 }

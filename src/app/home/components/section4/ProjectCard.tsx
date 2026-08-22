@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Project } from "@/data/projects";
-import { IoChevronDown, IoChevronUp } from "react-icons/io5";
+import { IoArrowForward } from "react-icons/io5";
+import ProjectModal from "./ProjectModal";
 
 interface ProjectCardProps {
   project: Project;
@@ -9,58 +10,47 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // The modal portals into document.body, which only exists on the client.
+  useEffect(() => setMounted(true), []);
 
   return (
-    <div className="project-card" data-index={index}>
-      <div className="project-card-header">
-        <div className="project-number">0{project.id}</div>
-        <div className="project-category">{project.category}</div>
-      </div>
+    <>
+      <article className="project-card" data-reveal>
+        <header className="project-card-top">
+          <span className="project-number">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="project-category">{project.category}</span>
+        </header>
 
-      <div className="project-card-body">
         <h3 className="project-title">{project.title}</h3>
         <p className="project-subtitle">{project.subtitle}</p>
 
-        <div className="project-tech-stack">
-          {project.technologies.map((tech, idx) => (
-            <span key={idx} className="tech-tag">
+        <ul className="project-tech">
+          {project.technologies.map((tech) => (
+            <li key={tech} className="tech-tag">
               {tech}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <div
-          className={`project-details ${isExpanded ? "expanded" : "collapsed"}`}
-        >
-          <p className="project-description">{project.description}</p>
-
-          <div className="project-highlights">
-            <h4>Key Highlights:</h4>
-            <ul>
-              {project.highlights.map((highlight, idx) => (
-                <li key={idx}>{highlight}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <button
-          className="expand-btn"
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          {isExpanded ? (
-            <>
-              Show Less <IoChevronUp size={16} />
-            </>
-          ) : (
-            <>
-              Learn More <IoChevronDown size={16} />
-            </>
-          )}
+        <button className="project-toggle" onClick={() => setIsOpen(true)}>
+          <span>Details</span>
+          <IoArrowForward size={14} className="project-toggle-icon" />
         </button>
-      </div>
-    </div>
+      </article>
+
+      {mounted && isOpen && (
+        <ProjectModal
+          project={project}
+          index={index}
+          onClose={() => setIsOpen(false)}
+        />
+      )}
+    </>
   );
 };
 

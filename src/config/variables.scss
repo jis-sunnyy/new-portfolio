@@ -1,34 +1,15 @@
-//colors
-$a1: #191d32;
-$a2: #ffffff;
+// ---------------------------------------------------------------
+// Font stacks. All colour lives in CSS custom properties defined
+// in src/app/globals.css so there is exactly one palette.
+// ---------------------------------------------------------------
 
-$b1: #478978;
-$b2: #ffffff;
+$Regular: var(--font-mono);
+$Medium: var(--font-mono-medium);
+$SemiBold: var(--font-mono-semibold);
+$Bold: var(--font-mono-bold);
+$Sans: var(--font-sans);
 
-$c1: #1d3461;
-$c2: #ffffff;
-
-$d1: #ef233c;
-$d2: #ffffff;
-
-$e1: #1c1c1c;
-$e2: #ffffff;
-
-$f1: #ffe2a3;
-$f2: #ed26f7;
-
-$g1: #ccc6e8;
-$g2: #d61347;
-
-$h1: #358926;
-$h2: #d7de50;
-
-$g1: #e0e8f0;
-$g2: #f4f4f4;
-
-//font
-$Regular: "IBMPlexMono-Regular";
-$Medium: "IBMPlexMono-Medium";
-$SemiBold: "IBMPlexMono-SemiBold";
-$Bold: "IBMPlexMono-Bold";
-$Thin: "IBMPlexMono-Thin";
+// Breakpoints
+$bp-lg: 1024px;
+$bp-md: 820px;
+$bp-sm: 560px;

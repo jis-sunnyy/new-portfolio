@@ -1,162 +1,88 @@
 @use "../../../../config/variables.scss" as vars;
 
-.sec3-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.career-timeline {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-
-  @media screen and (max-width: 412px) {
-    gap: 30px;
-    margin-top: 30px;
-  }
+.career-list {
+  border-top: 1px solid var(--line-strong);
 }
 
 .career-item {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 30px;
-  transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--line);
 
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateX(5px);
-  }
-
-  @media screen and (max-width: 412px) {
-    padding: 20px;
-  }
-}
-
-.career-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  gap: 20px;
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    gap: 15px;
-  }
-}
-
-.career-title {
-  font-family: vars.$Bold;
-  font-size: 28px;
-  color: rgba(255, 255, 255, 0.95);
-  margin: 0 0 8px 0;
-
-  @media screen and (max-width: 412px) {
-    font-size: 24px;
-  }
-}
-
-.career-company {
-  font-family: vars.$SemiBold;
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.8);
-
-  @media screen and (max-width: 412px) {
-    font-size: 18px;
+  @media screen and (max-width: vars.$bp-sm) {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 28px 0;
   }
 }
 
 .career-period {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-
-  @media screen and (max-width: 768px) {
-    align-items: flex-start;
-    text-align: left;
-  }
-}
-
-.career-badge {
-  font-family: vars.$SemiBold;
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-
-  &.current {
-    background-color: rgba(76, 175, 80, 0.2);
-    color: #4caf50;
-    border: 1px solid rgba(76, 175, 80, 0.4);
-  }
-}
-
-.career-dates {
   font-family: vars.$Medium;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+  padding-top: 4px;
+  white-space: nowrap;
+}
 
-  @media screen and (max-width: 412px) {
-    font-size: 14px;
+.career-detail {
+  min-width: 0;
+}
+
+.career-title {
+  font-family: vars.$SemiBold;
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+
+  @media screen and (max-width: vars.$bp-sm) {
+    font-size: 19px;
   }
 }
 
-.career-description {
-  margin-bottom: 25px;
+.career-company {
+  font-family: vars.$Regular;
+  font-size: 13px;
+  color: var(--accent);
+  margin-top: 6px;
+}
 
-  p {
-    font-family: vars.$Regular;
-    font-size: 18px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
+// Optional; sits after the company, dimmed so it doesn't compete with it.
+.career-location {
+  color: var(--fg-dim);
 
-    @media screen and (max-width: 412px) {
-      font-size: 16px;
-    }
+  &::before {
+    content: "·";
+    margin: 0 8px;
   }
+}
+
+.career-summary {
+  margin-top: 16px;
 }
 
 .career-highlights {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
+  gap: 9px;
 
-.highlight-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-family: vars.$Regular;
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  li {
+    position: relative;
+    padding-left: 22px;
+    font-family: vars.$Regular;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--fg-muted);
 
-  @media screen and (max-width: 412px) {
-    font-size: 14px;
-    gap: 10px;
-  }
-}
-
-.highlight-icon {
-  flex-shrink: 0;
-  margin-top: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.9);
-
-  svg {
-    font-size: 20px;
-
-    @media screen and (max-width: 412px) {
-      font-size: 18px;
+    &::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--fg-dim);
     }
   }
 }

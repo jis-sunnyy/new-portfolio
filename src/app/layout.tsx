@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { profile } from "@/data/profile";
+import { themeInitScript } from "@/components/theme/themeToggle";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
-  title: "Jis | Portfolio",
-  description: "Personal Portfolio",
+  title: `${profile.name} — ${profile.role}`,
+  description: `${profile.role} building web, mobile and cloud systems. Selected work, career history and contact.`,
 };
 
 export default function RootLayout({
@@ -16,8 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,48 +1,66 @@
 "use client";
 import React from "react";
 import "./styles.scss";
-import Image from "next/image";
-import Mouse from "../../../../assets/images/m2.gif";
 import { IoLogoGithub, IoLogoLinkedin, IoMail } from "react-icons/io5";
+import { mailto, profile } from "@/data/profile";
+
+const links = [
+  { label: "GitHub", href: profile.github, icon: <IoLogoGithub /> },
+  { label: "LinkedIn", href: profile.linkedin, icon: <IoLogoLinkedin /> },
+  { label: "Email", href: mailto, icon: <IoMail /> },
+];
 
 const Section1 = () => {
-  return (
-    <div className="sec1-main-box">
-      <div className="hero-content">
-        <div className="hero-greeting">Hi, I&apos;m</div>
-        <h1 className="hero-name">Jis Sunny</h1>
-        <div className="hero-tagline">Full Stack Engineer</div>
-        <p className="hero-description">
-          I build elegant, scalable solutions that power businesses across the
-          globe. From cloud architecture to AI integration—turning complex
-          challenges into seamless digital experiences.
-        </p>
+  const [firstName, ...rest] = profile.name.split(" ");
 
-        <div className="hero-social">
-          <a
-            href="https://github.com/jis-sunnyy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-          >
-            <IoLogoGithub />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/jis-sunny-28241815a/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-          >
-            <IoLogoLinkedin />
-          </a>
-          <a href="mailto:jis.sunny@gmail.com" className="social-link">
-            <IoMail />
-          </a>
+  return (
+    <div className="hero">
+      <div className="hero-inner">
+        <div className="hero-eyebrow">
+          <span className="hero-eyebrow-mark" />
+          {profile.role}
+        </div>
+
+        <h1 className="hero-name">
+          {firstName}
+          <br />
+          {rest.join(" ")}
+        </h1>
+
+        <p className="hero-description">{profile.intro}</p>
+
+        <div className="hero-links">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("mailto") ? undefined : "_blank"}
+              rel="noopener noreferrer"
+              className="hero-link"
+            >
+              {link.icon}
+              <span>{link.label}</span>
+            </a>
+          ))}
         </div>
       </div>
 
-      <div className="scroll-indicator">
-        <Image src={Mouse} width={50} height={50} alt="Scroll down" />
+      <div className="hero-meta">
+        <dl className="hero-meta-list">
+          <div className="hero-meta-item">
+            <dt>Based in</dt>
+            <dd>{profile.location}</dd>
+          </div>
+          <div className="hero-meta-item">
+            <dt>Experience</dt>
+            <dd>{profile.experience}</dd>
+          </div>
+          <div className="hero-meta-item">
+            <dt>Status</dt>
+            <dd>{profile.availability}</dd>
+          </div>
+        </dl>
+        <div className="hero-scroll">Scroll ↓</div>
       </div>
     </div>
   );

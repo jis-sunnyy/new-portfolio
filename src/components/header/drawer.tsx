@@ -1,96 +1,119 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import "./styles.scss";
+import { mailto, profile } from "@/data/profile";
 import {
   IoLogoGithub,
   IoLogoLinkedin,
   IoMailOutline,
-  IoOpenOutline,
+  IoArrowDown,
 } from "react-icons/io5";
 
 const navItems = [
   { id: "b", label: "About" },
   { id: "c", label: "Career" },
   { id: "d", label: "Projects" },
+  { id: "e", label: "Contact" },
 ];
 
-const MainDrawer = (props: any) => {
+interface DrawerProps {
+  open: boolean;
+  close: () => void;
+  scrollToSection: (sectionId: string) => void;
+  activeSection?: string | null;
+}
+
+const MainDrawer = ({
+  open,
+  close,
+  scrollToSection,
+  activeSection,
+}: DrawerProps) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (props.open) {
+    if (open) {
       requestAnimationFrame(() => setVisible(true));
       document.body.style.overflow = "hidden";
     } else {
       setVisible(false);
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
-  }, [props.open]);
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   const handleClose = () => {
     setVisible(false);
-    setTimeout(() => props?.close(), 400);
+    setTimeout(() => close(), 260);
   };
 
   const handleNavClick = (sectionId: string) => {
     setVisible(false);
     setTimeout(() => {
-      props?.scrollToSection(sectionId);
-      props?.close();
-    }, 400);
+      scrollToSection(sectionId);
+      close();
+    }, 260);
   };
 
-  if (!props.open) return null;
+  if (!open) return null;
 
   return (
     <div className={`fs-overlay ${visible ? "fs-overlay--open" : ""}`}>
-      <button className="fs-close" onClick={handleClose}>
-        <span className="fs-close-line" />
-        <span className="fs-close-line" />
-      </button>
+      <div className="fs-top">
+        <span className="fs-top-label">Menu</span>
+      </div>
 
       <nav className="fs-nav">
         {navItems.map((item, i) => (
           <button
             key={item.id}
-            className={`fs-nav-item ${visible ? "fs-nav-item--in" : ""}`}
-            style={{ transitionDelay: visible ? `${i * 70 + 100}ms` : "0ms" }}
+            className={`fs-nav-item ${
+              activeSection === item.id ? "is-active" : ""
+            }`}
+            style={{ transitionDelay: visible ? `${i * 45 + 60}ms` : "0ms" }}
             onClick={() => handleNavClick(item.id)}
           >
+            <span className="fs-nav-index">
+              {String(i + 1).padStart(2, "0")}
+            </span>
             <span className="fs-nav-label">{item.label}</span>
           </button>
         ))}
 
         <a
-          href="/Jis_Software_Engineer_CV.pdf"
-          download="Jis_Sunny_Resume.pdf"
-          className={`fs-nav-item ${visible ? "fs-nav-item--in" : ""}`}
-          style={{ transitionDelay: visible ? `${3 * 70 + 100}ms` : "0ms" }}
+          href={profile.resumeUrl}
+          download={profile.resumeFileName}
+          className="fs-nav-item"
+          style={{ transitionDelay: visible ? `${4 * 45 + 60}ms` : "0ms" }}
           onClick={handleClose}
         >
-          <span className="fs-nav-label">Resume</span>
-          <IoOpenOutline size={18} className="fs-nav-ext" />
+          <span className="fs-nav-index">05</span>
+          <span className="fs-nav-label">Résumé</span>
+          <IoArrowDown size={18} className="fs-nav-ext" />
         </a>
-
-        <button
-          className={`fs-nav-cta ${visible ? "fs-nav-cta--in" : ""}`}
-          style={{ transitionDelay: visible ? `${4 * 70 + 100}ms` : "0ms" }}
-          onClick={() => handleNavClick("e")}
-        >
-          Contact
-        </button>
       </nav>
 
-      <div className={`fs-footer ${visible ? "fs-footer--in" : ""}`}>
-        <a href="https://github.com/jissunny" target="_blank" rel="noopener noreferrer" className="fs-social">
-          <IoLogoGithub size={18} />
+      <div className="fs-footer">
+        <a
+          href={profile.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fs-social"
+        >
+          <IoLogoGithub size={17} />
         </a>
-        <a href="https://www.linkedin.com/in/jis-sunny-28241815a/" target="_blank" rel="noopener noreferrer" className="fs-social">
-          <IoLogoLinkedin size={18} />
+        <a
+          href={profile.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fs-social"
+        >
+          <IoLogoLinkedin size={17} />
         </a>
-        <a href="mailto:tojis.sunny@gmail.com" className="fs-social">
-          <IoMailOutline size={18} />
+        <a href={mailto} className="fs-social">
+          <IoMailOutline size={17} />
         </a>
       </div>
     </div>

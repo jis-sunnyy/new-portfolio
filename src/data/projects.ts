@@ -11,6 +11,19 @@ export interface Project {
 export const projectsData: Project[] = [
   {
     id: 1,
+    title: "Kenya Airways",
+    subtitle: "Staff Travel Management System",
+    description:
+      "Enterprise travel management system for Kenya Airways staff with real-time flight booking via Amadeus API and secure approval workflows.",
+    technologies: ["React.js", "NestJS", "Amadeus", "RBAC", "PostgreSQL", "Oracle"],
+    highlights: [
+      "Integrated Amadeus Flight APIs for real-time flight search, booking, and staff travel scheduling",
+      "Implemented secure role-based access control (RBAC) for employee travel approvals and administrative workflows",
+    ],
+    category: "Travel",
+  },
+  {
+    id: 2,
     title: "ADFW 2024",
     subtitle: "Event Management System – Abu Dhabi Finance Week",
     description:
@@ -18,10 +31,12 @@ export const projectsData: Project[] = [
     technologies: [
       "Next.js",
       "NestJS",
+      "React Native",
       "Node.js",
       "Sendbird SDK",
       "AWS",
       "Strapi CMS",
+      "RBAC"
     ],
     highlights: [
       "Developed a custom CRM for event registration, scheduling, and attendee engagement",
@@ -30,26 +45,7 @@ export const projectsData: Project[] = [
     ],
     category: "CRM",
   },
-  {
-    id: 2,
-    title: "Alaba Marketplace",
-    subtitle: "Multi-Vendor E-commerce Platform",
-    description:
-      "Scalable multi-vendor e-commerce marketplace with web and mobile apps, supporting product listings, order management, and secure payment workflows.",
-    technologies: [
-      "Next.js",
-      "React Native",
-      "NestJS",
-      "PostgreSQL",
-      "Azure",
-    ],
-    highlights: [
-      "Designed and developed a scalable marketplace supporting multi-vendor product listings and order management",
-      "Built responsive web and mobile applications enabling seamless shopping experiences across devices",
-      "Architected and deployed cloud infrastructure on Azure with scalable backend services",
-    ],
-    category: "E-commerce",
-  },
+
   {
     id: 3,
     title: "Sahari Cargo",
@@ -59,10 +55,11 @@ export const projectsData: Project[] = [
     technologies: [
       "React.js",
       "NestJS",
+      "React Native",
       "PostgreSQL",
       "AWS",
-      "Barcode Printing",
       "Bluetooth Printer",
+      "RBAC"
     ],
     highlights: [
       "Designed and developed a scalable cargo logistics ERP integrating shipment tracking, accounting, and warehouse operations",
@@ -73,7 +70,21 @@ export const projectsData: Project[] = [
   },
   {
     id: 4,
-    title: "Kenya Airways",
+    title: "Alaba Marketplace",
+    subtitle: "Multi-Vendor E-commerce Platform",
+    description:
+      "Scalable multi-vendor e-commerce marketplace with web and mobile apps, supporting product listings, order management, and secure payment workflows.",
+    technologies: ["Next.js", "React Native", "NestJS", "PostgreSQL", "Azure", "RBAC"],
+    highlights: [
+      "Designed and developed a scalable marketplace supporting multi-vendor product listings and order management",
+      "Built responsive web and mobile applications enabling seamless shopping experiences across devices",
+      "Architected and deployed cloud infrastructure on Azure with scalable backend services",
+    ],
+    category: "E-commerce",
+  },
+  {
+    id: 5,
+    title: "FM360Ai",
     subtitle: "Facility Management System",
     description:
       "Platform for managing facility maintenance requests, service scheduling, and vendor coordination with WhatsApp ticketing and AI-based ticket creation.",
@@ -84,6 +95,7 @@ export const projectsData: Project[] = [
       "PostgreSQL",
       "WhatsApp Ticketing",
       "AI Ticket Creation",
+      "RBAC"
     ],
     highlights: [
       "Developed a platform for managing facility maintenance requests, service scheduling, and vendor coordination",
@@ -91,25 +103,6 @@ export const projectsData: Project[] = [
       "Designed APIs and reporting modules to track service performance and operational efficiency",
     ],
     category: "Enterprise",
-  },
-  {
-    id: 5,
-    title: "Kenya Airways",
-    subtitle: "Staff Travel Management System",
-    description:
-      "Enterprise travel management system for Kenya Airways staff with real-time flight booking via Amadeus API and secure approval workflows.",
-    technologies: [
-      "React.js",
-      "NestJS",
-      "Amadeus API",
-      "RBAC",
-      "PostgreSQL",
-    ],
-    highlights: [
-      "Integrated Amadeus Flight APIs for real-time flight search, booking, and staff travel scheduling",
-      "Implemented secure role-based access control (RBAC) for employee travel approvals and administrative workflows",
-    ],
-    category: "Travel",
   },
   {
     id: 6,
@@ -121,9 +114,11 @@ export const projectsData: Project[] = [
       "Next.js",
       "React.js",
       "Strapi CMS",
+      "React Native",
       "GraphQL",
       "Node.js",
       "PostgreSQL",
+      "RBAC"
     ],
     highlights: [
       "Developed a headless CMS architecture using Strapi for efficient content publishing and editorial workflows",
@@ -140,10 +135,12 @@ export const projectsData: Project[] = [
       "Mobile application for gym access control with biometric attendance integration and real-time synchronization.",
     technologies: [
       "React Native",
+      "React.js",
       "ESSL Biometric SDK",
       "Real-time Sync",
       "Node.js",
       "MongoDB",
+      "RBAC"
     ],
     highlights: [
       "Integrated biometric attendance devices for automated user access control",
@@ -160,9 +157,10 @@ export const projectsData: Project[] = [
       "Mobile ticketing application with Bluetooth printer integration and customer loyalty management features.",
     technologies: [
       "React Native",
+      "React.js",
       "Bluetooth Printer",
       "Loyalty System",
-      "Node.js",
+      "Nest.js",
       "MongoDB",
     ],
     highlights: [

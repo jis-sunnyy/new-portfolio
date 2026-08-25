@@ -37,11 +37,27 @@ export const experienceData: Role[] = [
     ],
   },
   {
+    id: "bryt-solutions-consultant",
+    title: "Technical Consultant",
+    company: "Bryt Solutions Inc.",
+    location: "Canada",
+    period: "2026 — Present",
+    summary:
+      "Developing and delivering full-stack web and mobile applications using modern technologies across frontend, backend and cross-platform development.",
+    highlights: [
+      "Full-stack application development with React, Next.js and Node.js",
+      "Web application development using React and Next.js",
+      "Cross-platform mobile application development with React Native",
+      "Backend API development and integration with Node.js",
+    ],
+  },
+
+  {
     id: "bairuhatech-engineer",
     title: "Senior Software Engineer",
     location: "Kozhikode",
     company: "Bairuhatech LLP",
-    period: "2021 — 2026",
+    period: "2022 — 2026",
     summary:
       "Led architecture and delivery of production web and mobile applications across logistics, facility management and enterprise SaaS. Owned cloud infrastructure on AWS and Scaleway, built the CI/CD pipelines, and ran on-site enterprise deployments in Dubai and Nairobi.",
     highlights: [
@@ -51,21 +67,9 @@ export const experienceData: Role[] = [
       "AI-assisted development with Claude Code and Cursor",
     ],
   },
-  // {
-  //   id: "bairuhatech-intern",
-  //   title: "Full Stack Developer, Intern",
-  //   company: "Bairuhatech LLP",
-  //   period: "2021 — 2022",
-  //   summary:
-  //     "Built web and mobile features alongside concurrent responsibilities at TCS. Worked on backend services and frontend components with the senior engineering team.",
-  //   highlights: [
-  //     "Scalable backend services and responsive frontend components",
-  //     "New features and third-party API integrations",
-  //   ],
-  // },
   {
     id: "tcs-process-associate",
-    title: "Process Associate",
+    title: "Associate",
     company: "Tata Consultancy Services",
     location: "Bangalore",
     period: "2019 — 2022",
